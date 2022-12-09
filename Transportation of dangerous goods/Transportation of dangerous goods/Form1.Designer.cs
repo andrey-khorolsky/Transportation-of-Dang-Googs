@@ -29,17 +29,26 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFile = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.status = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.from = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.to = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.class_goods = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goods = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.g_volume = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.g_weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tarif = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -51,15 +60,6 @@
             this.button1.Text = "add";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(561, 128);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
             // 
             // textBox1
             // 
@@ -75,26 +75,26 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1186, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openToolStripMenuItem,
+            this.openFile,
             this.saveToolStripMenuItem,
             this.closeToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // openToolStripMenuItem
+            // openFile
             // 
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.openToolStripMenuItem.Text = "Open";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            this.openFile.Name = "openFile";
+            this.openFile.Size = new System.Drawing.Size(103, 22);
+            this.openFile.Text = "Open";
+            this.openFile.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
@@ -128,7 +128,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(657, 250);
+            this.button2.Location = new System.Drawing.Point(959, 260);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 6;
@@ -136,16 +136,75 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.from,
+            this.to,
+            this.class_goods,
+            this.goods,
+            this.g_volume,
+            this.g_weight,
+            this.tarif});
+            this.dataGridView1.Location = new System.Drawing.Point(528, 27);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(646, 194);
+            this.dataGridView1.TabIndex = 7;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "ID груза";
+            this.id.Name = "id";
+            // 
+            // from
+            // 
+            this.from.HeaderText = "Отправитель";
+            this.from.Name = "from";
+            // 
+            // to
+            // 
+            this.to.HeaderText = "Приниматель";
+            this.to.Name = "to";
+            // 
+            // class_goods
+            // 
+            this.class_goods.HeaderText = "Класс груза";
+            this.class_goods.Name = "class_goods";
+            // 
+            // goods
+            // 
+            this.goods.HeaderText = "Груз";
+            this.goods.Name = "goods";
+            // 
+            // g_volume
+            // 
+            this.g_volume.HeaderText = "Объем";
+            this.g_volume.Name = "g_volume";
+            // 
+            // g_weight
+            // 
+            this.g_weight.HeaderText = "Вес";
+            this.g_weight.Name = "g_weight";
+            // 
+            // tarif
+            // 
+            this.tarif.HeaderText = "Тариф";
+            this.tarif.Name = "tarif";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1186, 621);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.status);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -153,6 +212,7 @@
             this.Text = "Form1";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,15 +221,23 @@
         #endregion
 
         private Button button1;
-        private Label label1;
         private TextBox textBox1;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem fileToolStripMenuItem;
-        private ToolStripMenuItem openToolStripMenuItem;
+        private ToolStripMenuItem openFile;
         private ToolStripMenuItem saveToolStripMenuItem;
         private ToolStripMenuItem closeToolStripMenuItem;
         private TextBox textBox2;
         private Label status;
         private Button button2;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn from;
+        private DataGridViewTextBoxColumn to;
+        private DataGridViewTextBoxColumn class_goods;
+        private DataGridViewTextBoxColumn goods;
+        private DataGridViewTextBoxColumn g_volume;
+        private DataGridViewTextBoxColumn g_weight;
+        private DataGridViewTextBoxColumn tarif;
     }
 }
