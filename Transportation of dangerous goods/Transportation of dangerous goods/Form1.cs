@@ -26,15 +26,18 @@ namespace Transportation_of_dangerous_goods
 
             //connection.Open();
 
-            SqliteCommand command = new SqliteCommand("create table order_1 (" +
-                "id integer not null," +
-                "from_company varchar(50) not null," +
-                "to_company varchar(50) not null," +
-                "goods varchar(30) not null," +
-                "g_class integer not null," +
-                "g_volume integer not null," +
-                "g_weight integer not null )");
-            command.Connection = connection;
+            //orders exists
+
+            //command = new SqliteCommand("create table orders (" +
+            //    "id integer not null," +
+            //    "from_company varchar(50) not null," +
+            //    "to_company varchar(50) not null," +
+            //    "goods varchar(30) not null," +
+            //    "g_class integer not null," +
+            //    "g_volume integer not null," +
+            //    "g_weight integer not null," +
+            //    "tarif varchar(30) )");
+            //command.Connection = connection;
             //command.ExecuteNonQuery();
 
             //command.ExecuteNonQuery();
@@ -46,25 +49,8 @@ namespace Transportation_of_dangerous_goods
             //    return;
             //}
 
-           
-                SqliteCommand comAdd = new SqliteCommand("insert into order_1 (id, from_company, to_company, goods, g_class, g_volume, g_weight) " +
-                    "values (" + 1 + ", 'TransDGoods', 'Company', 'fish flavour', 7, 5, 40);");
-                comAdd.Connection = connection;
-                comAdd.ExecuteNonQuery();
-
-            comAdd = new SqliteCommand("insert into order_1 (id, from_company, to_company, goods, g_class, g_volume, g_weight) " +
-                    "values (" + 2 + ", 'TransDGoods', 'GStore', 'gas', 9, 8, 47);");
-            comAdd.Connection = connection;
-            comAdd.ExecuteNonQuery();
-
-            textBox1.Text = "";
-            textBox2.Text = "";
-            status.Text = "added";
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
+            Form addF = new addElement();
+            addF.Show();
 
         }
 
@@ -90,14 +76,14 @@ namespace Transportation_of_dangerous_goods
         private void button2_Click(object sender, EventArgs e)
         {
             if (connection == null) return;
-            SqliteCommand comShow = new SqliteCommand("select * from order_1", connection);
+            SqliteCommand comShow = new SqliteCommand("select * from orders", connection);
             SqliteDataReader reader = comShow.ExecuteReader();
 
             dataGridView1.Rows.Clear();
 
             while (reader.Read())
             {
-                dataGridView1.Rows.Add(reader.GetValue(0), reader.GetValue(1), reader.GetValue(2), reader.GetValue(3), reader.GetValue(4), reader.GetValue(5), reader.GetValue(6));
+                dataGridView1.Rows.Add(reader.GetValue(0), reader.GetValue(1), reader.GetValue(2), reader.GetValue(3), reader.GetValue(4), reader.GetValue(5), reader.GetValue(6), reader.GetValue(7));
             }
         }
 
