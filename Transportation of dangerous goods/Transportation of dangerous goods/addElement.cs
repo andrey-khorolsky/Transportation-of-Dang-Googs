@@ -30,9 +30,12 @@ namespace Transportation_of_dangerous_goods
 
         private void button1_Click(object sender, EventArgs e)
         {
-            String str = String.Format("insert into orders " +
-                "values ({0}, '{1}', '{2}', '{3}', {4}, {5}, {6}, '{7}');", textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text,
-                textBox5.Text, textBox6.Text, textBox7.Text, textBox8.Text);
+            //String str = String.Format("insert into orders " +
+            //    "values ({0}, '{1}', '{2}', '{3}', {4}, {5}, {6}, '{7}');", textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text,
+            //    textBox5.Text, textBox6.Text, textBox7.Text, textBox8.Text);
+
+            String str = String.Format("insert into classes_of_goods " +
+                "values ({0}, '{1}');", textBox1.Text, textBox2.Text);
             SqliteCommand command = new SqliteCommand(str, connection);
             //SqliteCommand command = new SqliteCommand("insert into orders " +
             //    "values ({0}, '" + textBox2.Text + "', '" + textBox3.Text + "', '" + textBox4.Text + "', " +

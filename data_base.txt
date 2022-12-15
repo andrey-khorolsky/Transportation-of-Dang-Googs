@@ -1,0 +1,37 @@
+create table company(
+	name varchar(50) primary key,
+	region varchar(50) not null,
+	city varchar(50) not null,
+	adress varchar(50) not null,
+	count_orders integer)
+
+create table classes_of_goods(
+	class_number integer primary key,
+	desc varchar(30) not null)
+
+create table tarif(
+	tarif_name varchar(30) primary key,
+	class_og_goods integer not null,
+	len integer not null,
+	weight integer not null,
+	volume integer not null,
+	foreign key (class_og_goods) references classes_of_goods (class_number))
+
+create table orders (
+	id integer primary key,
+	from_company varchar(50) not null,
+	to_company varchar(50) not null,
+	goods varchar(30) not null,
+	g_class integer not null,
+	g_volume integer not null,
+	g_weight integer not null,
+	tarif varchar(30),
+	foreign key (from_company) references company (name),
+	foreign key (to_company) references company (name),
+	foreign key (g_class) references classes_of_goods (class_number),
+	foreign key (tarif) references tarif (tarif_name))
+
+
+
+
+
