@@ -47,9 +47,24 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.n_trip = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_goods = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_depar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_arr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.рольToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.администраторToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.диспетчерToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.отделКадровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.выборкаИзТаблицToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.добавитьДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалитьДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.выборкаДанныхToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -65,10 +80,12 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.рольToolStripMenuItem,
+            this.выборкаИзТаблицToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1186, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1713, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -79,27 +96,27 @@
             this.saveToolStripMenuItem,
             this.closeToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.fileToolStripMenuItem.Text = "Файл";
             // 
             // openFile
             // 
             this.openFile.Name = "openFile";
-            this.openFile.Size = new System.Drawing.Size(103, 22);
-            this.openFile.Text = "Open";
+            this.openFile.Size = new System.Drawing.Size(180, 22);
+            this.openFile.Text = "Открыть";
             this.openFile.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Text = "Сохранить";
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.closeToolStripMenuItem.Text = "Close";
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.closeToolStripMenuItem.Text = "Закрыть";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // button2
@@ -124,27 +141,29 @@
             this.g_volume,
             this.g_weight,
             this.tarif});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 46);
+            this.dataGridView1.Location = new System.Drawing.Point(28, 49);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(295, 462);
+            this.dataGridView1.Size = new System.Drawing.Size(1062, 167);
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // id
             // 
-            this.id.HeaderText = "ID груза";
+            this.id.HeaderText = "ID заказа";
             this.id.Name = "id";
             // 
             // from
             // 
             this.from.HeaderText = "Отправитель";
             this.from.Name = "from";
+            this.from.Width = 200;
             // 
             // to
             // 
             this.to.HeaderText = "Приниматель";
             this.to.Name = "to";
+            this.to.Width = 200;
             // 
             // goods
             // 
@@ -155,6 +174,7 @@
             // 
             this.class_goods.HeaderText = "Класс груза";
             this.class_goods.Name = "class_goods";
+            this.class_goods.Width = 70;
             // 
             // g_volume
             // 
@@ -165,17 +185,19 @@
             // 
             this.g_weight.HeaderText = "Вес";
             this.g_weight.Name = "g_weight";
+            this.g_weight.Width = 70;
             // 
             // tarif
             // 
             this.tarif.HeaderText = "Тариф";
             this.tarif.Name = "tarif";
+            this.tarif.Width = 120;
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(794, 69);
+            this.tabControl1.Location = new System.Drawing.Point(1386, 387);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(200, 100);
@@ -201,11 +223,111 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.n_trip,
+            this.id_goods,
+            this.transp,
+            this.date_depar,
+            this.date_arr});
+            this.dataGridView2.Location = new System.Drawing.Point(28, 259);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowTemplate.Height = 25;
+            this.dataGridView2.Size = new System.Drawing.Size(557, 150);
+            this.dataGridView2.TabIndex = 9;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            // 
+            // n_trip
+            // 
+            this.n_trip.HeaderText = "Номер рейса";
+            this.n_trip.Name = "n_trip";
+            // 
+            // id_goods
+            // 
+            this.id_goods.HeaderText = "ID заказа";
+            this.id_goods.Name = "id_goods";
+            // 
+            // transp
+            // 
+            this.transp.HeaderText = "Транспорт";
+            this.transp.Name = "transp";
+            // 
+            // date_depar
+            // 
+            this.date_depar.HeaderText = "Дата отправления";
+            this.date_depar.Name = "date_depar";
+            // 
+            // date_arr
+            // 
+            this.date_arr.HeaderText = "Дата прибытия";
+            this.date_arr.Name = "date_arr";
+            // 
+            // рольToolStripMenuItem
+            // 
+            this.рольToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.администраторToolStripMenuItem,
+            this.диспетчерToolStripMenuItem,
+            this.отделКадровToolStripMenuItem});
+            this.рольToolStripMenuItem.Name = "рольToolStripMenuItem";
+            this.рольToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.рольToolStripMenuItem.Text = "Роль";
+            // 
+            // администраторToolStripMenuItem
+            // 
+            this.администраторToolStripMenuItem.Name = "администраторToolStripMenuItem";
+            this.администраторToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.администраторToolStripMenuItem.Text = "Администратор";
+            // 
+            // диспетчерToolStripMenuItem
+            // 
+            this.диспетчерToolStripMenuItem.Name = "диспетчерToolStripMenuItem";
+            this.диспетчерToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.диспетчерToolStripMenuItem.Text = "Диспетчер";
+            // 
+            // отделКадровToolStripMenuItem
+            // 
+            this.отделКадровToolStripMenuItem.Name = "отделКадровToolStripMenuItem";
+            this.отделКадровToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.отделКадровToolStripMenuItem.Text = "Отдел кадров";
+            // 
+            // выборкаИзТаблицToolStripMenuItem
+            // 
+            this.выборкаИзТаблицToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.добавитьДанныеToolStripMenuItem,
+            this.удалитьДанныеToolStripMenuItem,
+            this.выборкаДанныхToolStripMenuItem});
+            this.выборкаИзТаблицToolStripMenuItem.Name = "выборкаИзТаблицToolStripMenuItem";
+            this.выборкаИзТаблицToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.выборкаИзТаблицToolStripMenuItem.Text = "Таблицы";
+            this.выборкаИзТаблицToolStripMenuItem.Click += new System.EventHandler(this.выборкаИзТаблицToolStripMenuItem_Click);
+            // 
+            // добавитьДанныеToolStripMenuItem
+            // 
+            this.добавитьДанныеToolStripMenuItem.Name = "добавитьДанныеToolStripMenuItem";
+            this.добавитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.добавитьДанныеToolStripMenuItem.Text = "Добавить данные";
+            this.добавитьДанныеToolStripMenuItem.Click += new System.EventHandler(this.добавитьДанныеToolStripMenuItem_Click);
+            // 
+            // удалитьДанныеToolStripMenuItem
+            // 
+            this.удалитьДанныеToolStripMenuItem.Name = "удалитьДанныеToolStripMenuItem";
+            this.удалитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.удалитьДанныеToolStripMenuItem.Text = "Удалить данные";
+            // 
+            // выборкаДанныхToolStripMenuItem
+            // 
+            this.выборкаДанныхToolStripMenuItem.Name = "выборкаДанныхToolStripMenuItem";
+            this.выборкаДанныхToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.выборкаДанныхToolStripMenuItem.Text = "Выборка данных";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1186, 621);
+            this.ClientSize = new System.Drawing.Size(1713, 764);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
@@ -218,6 +340,7 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,6 +356,9 @@
         private ToolStripMenuItem closeToolStripMenuItem;
         private Button button2;
         private DataGridView dataGridView1;
+        private TabControl tabControl1;
+        private TabPage tabPage1;
+        private TabPage tabPage2;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn from;
         private DataGridViewTextBoxColumn to;
@@ -241,8 +367,19 @@
         private DataGridViewTextBoxColumn g_volume;
         private DataGridViewTextBoxColumn g_weight;
         private DataGridViewTextBoxColumn tarif;
-        private TabControl tabControl1;
-        private TabPage tabPage1;
-        private TabPage tabPage2;
+        private DataGridView dataGridView2;
+        private DataGridViewTextBoxColumn n_trip;
+        private DataGridViewTextBoxColumn id_goods;
+        private DataGridViewTextBoxColumn transp;
+        private DataGridViewTextBoxColumn date_depar;
+        private DataGridViewTextBoxColumn date_arr;
+        private ToolStripMenuItem рольToolStripMenuItem;
+        private ToolStripMenuItem администраторToolStripMenuItem;
+        private ToolStripMenuItem диспетчерToolStripMenuItem;
+        private ToolStripMenuItem отделКадровToolStripMenuItem;
+        private ToolStripMenuItem выборкаИзТаблицToolStripMenuItem;
+        private ToolStripMenuItem добавитьДанныеToolStripMenuItem;
+        private ToolStripMenuItem удалитьДанныеToolStripMenuItem;
+        private ToolStripMenuItem выборкаДанныхToolStripMenuItem;
     }
 }

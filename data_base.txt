@@ -31,7 +31,21 @@ create table orders (
 	foreign key (g_class) references classes_of_goods (class_number),
 	foreign key (tarif) references tarif (tarif_name))
 
-
+CREATE TRIGGER set_new_tarif BEFORE INSERT ON orders
+BEGIN
+	if (SELECT city FROM company WHERE city == new.from_company) ==
+	(SELECT city FROM company WHERE city == new.to_company) THEN
+		BEGIN
+			new.tarif = 'City';
+		END;
+	ELSE
+	if (SELECT region FROM company WHERE city == new.from_company) ==
+	(SELECT region FROM company WHERE city == new.to_company) THEN
+		BEGIN
+			new.tarif = 'Region';
+		END;
+	ELSE new.tarif = 'Country';
+END;
 
 
 

@@ -54,20 +54,45 @@ namespace Transportation_of_dangerous_goods
         private void button2_Click(object sender, EventArgs e)
         {
             if (connection == null) return;
-            SqliteCommand comShow = new SqliteCommand("select * from classes_of_goods", connection);
-            SqliteDataReader reader = comShow.ExecuteReader();
 
+            SqliteCommand comShow = new SqliteCommand("select * from orders", connection);
+            SqliteDataReader reader = comShow.ExecuteReader();
             dataGridView1.Rows.Clear();
 
             while (reader.Read())
             {
-                dataGridView1.Rows.Add(reader.GetValue(0), reader.GetValue(1));
+                dataGridView1.Rows.Add(reader.GetValue(0), reader.GetValue(1), reader.GetValue(2), reader.GetValue(3), reader.GetValue(4), reader.GetValue(5), reader.GetValue(6), reader.GetValue(7));
+            }
+
+            SqliteCommand comShow2 = new SqliteCommand("select * from trip", connection);
+            SqliteDataReader reader2 = comShow2.ExecuteReader();
+            dataGridView2.Rows.Clear();
+
+            while (reader2.Read())
+            {
+                dataGridView2.Rows.Add(reader2.GetValue(0), reader2.GetValue(1), reader2.GetValue(2), reader2.GetValue(3), reader2.GetValue(4));
             }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void ‚˚·ÓÍ‡»Á“‡·ÎËˆToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ‰Ó·‡‚ËÚ¸ƒ‡ÌÌ˚ÂToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form addF = new addElement();
+            addF.Show();
         }
     }
 }

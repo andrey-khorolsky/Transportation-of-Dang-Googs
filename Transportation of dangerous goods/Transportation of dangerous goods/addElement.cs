@@ -15,12 +15,15 @@ namespace Transportation_of_dangerous_goods
     {
         
         SqliteConnection connection;
+        String[] orders = new string[] { "ID", "От", "Кому", "Груз", "Класс груза", "Объем груза", "Вес груза", "Тариф" };
 
-        public addElement()
+
+    public addElement()
         {
             InitializeComponent();
             connection = new SqliteConnection("Data Source=../../../Trans_dangerous_goods_DB.db");
             connection.Open();
+            textBox1.Hide();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -30,17 +33,11 @@ namespace Transportation_of_dangerous_goods
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //String str = String.Format("insert into orders " +
-            //    "values ({0}, '{1}', '{2}', '{3}', {4}, {5}, {6}, '{7}');", textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text,
-            //    textBox5.Text, textBox6.Text, textBox7.Text, textBox8.Text);
-
-            String str = String.Format("insert into classes_of_goods " +
-                "values ({0}, '{1}');", textBox1.Text, textBox2.Text);
+            String str = String.Format("insert into orders " +
+                "values ({0}, '{1}', '{2}', '{3}', {4}, {5}, {6}, '{7}');", textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text,
+                textBox5.Text, textBox6.Text, textBox7.Text, textBox8.Text);
+            
             SqliteCommand command = new SqliteCommand(str, connection);
-            //SqliteCommand command = new SqliteCommand("insert into orders " +
-            //    "values ({0}, '" + textBox2.Text + "', '" + textBox3.Text + "', '" + textBox4.Text + "', " +
-            //    textBox5.Text + ", " + textBox6.Text + ", 67, 'country');", textBox1.Text);
-            //command.Connection= connection;
             command.ExecuteNonQuery();
         }
 
