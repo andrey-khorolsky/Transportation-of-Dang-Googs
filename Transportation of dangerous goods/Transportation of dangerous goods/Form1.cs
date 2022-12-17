@@ -94,5 +94,56 @@ namespace Transportation_of_dangerous_goods
             Form addF = new addElement();
             addF.Show();
         }
+
+        private void Ó·ÌÓ‚ËÚ¸ƒ‡ÌÌ˚ÂToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (connection == null) return;
+
+            SqliteCommand comShow = new SqliteCommand("select * from orders", connection);
+            SqliteDataReader reader = comShow.ExecuteReader();
+            dataGridView1.Rows.Clear();
+
+            while (reader.Read())
+            {
+                dataGridView1.Rows.Add(reader.GetValue(0), reader.GetValue(1), reader.GetValue(2), reader.GetValue(3), reader.GetValue(4), reader.GetValue(5), reader.GetValue(6), reader.GetValue(7));
+            }
+
+            SqliteCommand comShow2 = new SqliteCommand("select * from trip", connection);
+            SqliteDataReader reader2 = comShow2.ExecuteReader();
+            dataGridView2.Rows.Clear();
+
+            while (reader2.Read())
+            {
+                dataGridView2.Rows.Add(reader2.GetValue(0), reader2.GetValue(1), reader2.GetValue(2), reader2.GetValue(3), reader2.GetValue(4));
+            }
+
+            SqliteCommand comShow3 = new SqliteCommand("select * from transport", connection);
+            SqliteDataReader reader3 = comShow3.ExecuteReader();
+            dataGridView3.Rows.Clear();
+
+            while (reader3.Read())
+            {
+                dataGridView3.Rows.Add(reader3.GetValue(0), reader3.GetValue(1), reader3.GetValue(2), reader3.GetValue(3), reader3.GetValue(4));
+            }
+
+            SqliteCommand comShow4 = new SqliteCommand("select * from company", connection);
+            SqliteDataReader reader4 = comShow4.ExecuteReader();
+            dataGridView4.Rows.Clear();
+
+            while (reader4.Read())
+            {
+                dataGridView4.Rows.Add(reader4.GetValue(0), reader4.GetValue(1), reader4.GetValue(2), reader4.GetValue(3), reader4.GetValue(4));
+            }
+        }
+
+        private void dataGridView5_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

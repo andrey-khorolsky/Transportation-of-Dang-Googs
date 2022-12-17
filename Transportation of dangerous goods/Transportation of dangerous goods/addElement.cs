@@ -60,24 +60,24 @@ namespace Transportation_of_dangerous_goods
                     break;
 
                 case (3)://company
-                    str = String.Format("insert into transport " +
+                    str = String.Format("insert into company " +
                     "values ('{0}', '{1}', '{2}', '{3}', {4});", textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text,
                     textBox5.Text);
                     break;
 
                 case (4)://tarif
-                    str = String.Format("insert into transport " +
+                    str = String.Format("insert into tarif " +
                     "values ('{0}', {1}, {2}, {3}, {4});", textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text,
                     textBox5.Text);
                     break;
 
                 case (5)://classes_of_goods
-                    str = String.Format("insert into transport " +
+                    str = String.Format("insert into classes_of_goods " +
                     "values ({0}, '{1}');", textBox1.Text, textBox2.Text);
                     break;
 
                 case (6)://crew
-                    str = String.Format("insert into transport " +
+                    str = String.Format("insert into crew " +
                     "values ({0}, '{1}', {2}, {3});", textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text);
                     break;
             }
