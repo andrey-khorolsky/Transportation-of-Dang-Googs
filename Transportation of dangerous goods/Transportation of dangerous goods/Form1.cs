@@ -13,6 +13,10 @@ namespace Transportation_of_dangerous_goods
         public Form1()
         {
             InitializeComponent();
+            tabPage1.Text = " ÓÏÔ‡ÌËË";
+            tabPage2.Text = "“‡ËÙ˚";
+            tabPage3.Text = " ÎÒ‡‡˚ ÓÔ‡ÒÌ˚ı „ÛÁÓ‚";
+            tabPage4.Text = "›ÍËÔ‡ÊË";
             connection = new SqliteConnection("Data Source=../../../Trans_dangerous_goods_DB.db");
             connection.Open();
         }
@@ -98,9 +102,12 @@ namespace Transportation_of_dangerous_goods
         private void Ó·ÌÓ‚ËÚ¸ƒ‡ÌÌ˚ÂToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (connection == null) return;
+            SqliteCommand comShow;
+            SqliteDataReader reader;
 
-            SqliteCommand comShow = new SqliteCommand("select * from orders", connection);
-            SqliteDataReader reader = comShow.ExecuteReader();
+            //orders
+            comShow = new SqliteCommand("select * from orders", connection);
+            reader = comShow.ExecuteReader();
             dataGridView1.Rows.Clear();
 
             while (reader.Read())
@@ -108,31 +115,64 @@ namespace Transportation_of_dangerous_goods
                 dataGridView1.Rows.Add(reader.GetValue(0), reader.GetValue(1), reader.GetValue(2), reader.GetValue(3), reader.GetValue(4), reader.GetValue(5), reader.GetValue(6), reader.GetValue(7));
             }
 
-            SqliteCommand comShow2 = new SqliteCommand("select * from trip", connection);
-            SqliteDataReader reader2 = comShow2.ExecuteReader();
+            //trip
+            comShow = new SqliteCommand("select * from trip", connection);
+            reader = comShow.ExecuteReader();
             dataGridView2.Rows.Clear();
 
-            while (reader2.Read())
+            while (reader.Read())
             {
-                dataGridView2.Rows.Add(reader2.GetValue(0), reader2.GetValue(1), reader2.GetValue(2), reader2.GetValue(3), reader2.GetValue(4));
+                dataGridView2.Rows.Add(reader.GetValue(0), reader.GetValue(1), reader.GetValue(2), reader.GetValue(3), reader.GetValue(4));
             }
 
-            SqliteCommand comShow3 = new SqliteCommand("select * from transport", connection);
-            SqliteDataReader reader3 = comShow3.ExecuteReader();
+            //transport
+            comShow = new SqliteCommand("select * from transport", connection);
+            reader = comShow.ExecuteReader();
             dataGridView3.Rows.Clear();
 
-            while (reader3.Read())
+            while (reader.Read())
             {
-                dataGridView3.Rows.Add(reader3.GetValue(0), reader3.GetValue(1), reader3.GetValue(2), reader3.GetValue(3), reader3.GetValue(4));
+                dataGridView3.Rows.Add(reader.GetValue(0), reader.GetValue(1), reader.GetValue(2), reader.GetValue(3), reader.GetValue(4));
             }
 
-            SqliteCommand comShow4 = new SqliteCommand("select * from company", connection);
-            SqliteDataReader reader4 = comShow4.ExecuteReader();
+            //company
+            comShow = new SqliteCommand("select * from company", connection);
+            reader = comShow.ExecuteReader();
             dataGridView4.Rows.Clear();
 
-            while (reader4.Read())
+            while (reader.Read())
             {
-                dataGridView4.Rows.Add(reader4.GetValue(0), reader4.GetValue(1), reader4.GetValue(2), reader4.GetValue(3), reader4.GetValue(4));
+                dataGridView4.Rows.Add(reader.GetValue(0), reader.GetValue(1), reader.GetValue(2), reader.GetValue(3), reader.GetValue(4));
+            }
+
+            //tarif
+            comShow = new SqliteCommand("select * from tarif", connection);
+            reader = comShow.ExecuteReader();
+            dataGridView5.Rows.Clear();
+
+            while (reader.Read())
+            {
+                dataGridView5.Rows.Add(reader.GetValue(0), reader.GetValue(1), reader.GetValue(2), reader.GetValue(3), reader.GetValue(4));
+            }
+
+            //classes of goods
+            comShow = new SqliteCommand("select * from classes_of_goods", connection);
+            reader = comShow.ExecuteReader();
+            dataGridView6.Rows.Clear();
+
+            while (reader.Read())
+            {
+                dataGridView6.Rows.Add(reader.GetValue(0), reader.GetValue(1));
+            }
+
+            //crew
+            comShow = new SqliteCommand("select * from crew", connection);
+            reader = comShow.ExecuteReader();
+            dataGridView7.Rows.Clear();
+
+            while (reader.Read())
+            {
+                dataGridView7.Rows.Add(reader.GetValue(0), reader.GetValue(1), reader.GetValue(2), reader.GetValue(3));
             }
         }
 
@@ -142,6 +182,11 @@ namespace Transportation_of_dangerous_goods
         }
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void Û‰‡ÎËÚ¸ƒ‡ÌÌ˚ÂToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

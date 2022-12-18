@@ -81,9 +81,22 @@ namespace Transportation_of_dangerous_goods
                     "values ({0}, '{1}', {2}, {3});", textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text);
                     break;
             }
-            
-            SqliteCommand command = new SqliteCommand(str, connection);
-            command.ExecuteNonQuery();
+            try
+            {
+                SqliteCommand command = new SqliteCommand(str, connection);
+                command.ExecuteNonQuery();
+            }
+            catch
+            {
+                MessageBox.Show(
+                    "Ошибка при добвалении",
+                    "Ошибка",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.DefaultDesktopOnly);
+            }
+            textBox1.Clear();
         }
 
         //закрытие формы
@@ -106,15 +119,36 @@ namespace Transportation_of_dangerous_goods
                 txb[i].Clear();
             }
 
-            if (comboBox1.SelectedIndex == 0)
+            switch (comboBox1.SelectedIndex)
             {
-                currtab = new string[] { "ID", "От кого", "Кому", "Груз", "Класс груза", "Объем груза", "Вес груза", "Тариф" };
-                nTable = 0;
-            }
-            if (comboBox1.SelectedIndex == 1)
-            {
-                currtab = new string[] { "Номер рейса", "ID заказа", "Транспорт", "Дата отправления", "Дата прибытия" };
-                nTable = 1;
+                case 0:
+                    currtab = new string[] { "ID", "От кого", "Кому", "Груз", "Класс груза", "Объем груза", "Вес груза", "Тариф" };
+                    nTable = 0;
+                    break;
+                case 1:
+                    currtab = new string[] { "Номер рейса", "ID заказа", "Транспорт", "Дата отправления", "Дата прибытия" };
+                    nTable = 1;
+                    break;
+                case 2:
+                    currtab = new string[] { "ID транспорта", "Экипаж", "Мкасимальный объем", "Максимальный вес", "Наименование" };
+                    nTable = 2;
+                    break;
+                case 3:
+                    currtab = new string[] { "Название", "Регион", "Город", "Адрес", "Количество заказов" };
+                    nTable = 3;
+                    break;
+                case 4:
+                    currtab = new string[] { "Название", "Классы грузов", "Цена за км", "Цена за м3", "Цена за тонну" };
+                    nTable = 4;
+                    break;
+                case 5:
+                    currtab = new string[] { "Номер класса", "Пояснение" };
+                    nTable = 5;
+                    break;
+                case 6:
+                    currtab = new string[] { "Номер экипажа", "ФИО главного", "Размер экипажа", "Опыт" };
+                    nTable = 6;
+                    break;
             }
 
             for (int i = 0; i < currtab.Length; i++)
