@@ -27,10 +27,6 @@ namespace Transportation_of_dangerous_goods
             comboBox1.SelectedIndex = 0;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         //добавление в таблицу
         private void button1_Click(object sender, EventArgs e)

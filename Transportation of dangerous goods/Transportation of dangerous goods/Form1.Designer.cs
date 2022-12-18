@@ -38,6 +38,7 @@
             this.администраторToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.диспетчерToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отделКадровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.пользовательToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выборкаИзТаблицToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.добавитьДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,30 +48,6 @@
             this.руководствоПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridView5 = new System.Windows.Forms.DataGridView();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.dataGridView6 = new System.Windows.Forms.DataGridView();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.dataGridView7 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.id_transp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.crew = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.max_volume = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.max_weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name_transp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.n_trip = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_goods = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.transp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date_depar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date_arr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.from = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.to = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,22 +56,46 @@
             this.g_volume = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.g_weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tarif = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.name_company = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.region = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.city = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.adress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.count_of_orders = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dataGridView5 = new System.Windows.Forms.DataGridView();
             this.name_tarif = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.class_of_goods = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lenght = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.volume = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dataGridView6 = new System.Windows.Forms.DataGridView();
             this.n_class = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.dataGridView7 = new System.Windows.Forms.DataGridView();
             this.n_crew = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fio_lider = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.size_crew = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.exp_crew = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.n_trip = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_goods = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_depar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_arr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.id_transp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.crew = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.max_volume = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.max_weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name_transp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -158,7 +159,8 @@
             this.рольToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.администраторToolStripMenuItem,
             this.диспетчерToolStripMenuItem,
-            this.отделКадровToolStripMenuItem});
+            this.отделКадровToolStripMenuItem,
+            this.пользовательToolStripMenuItem});
             this.рольToolStripMenuItem.Name = "рольToolStripMenuItem";
             this.рольToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.рольToolStripMenuItem.Text = "Роль";
@@ -166,20 +168,30 @@
             // администраторToolStripMenuItem
             // 
             this.администраторToolStripMenuItem.Name = "администраторToolStripMenuItem";
-            this.администраторToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.администраторToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.администраторToolStripMenuItem.Text = "Администратор";
+            this.администраторToolStripMenuItem.Click += new System.EventHandler(this.администраторToolStripMenuItem_Click);
             // 
             // диспетчерToolStripMenuItem
             // 
             this.диспетчерToolStripMenuItem.Name = "диспетчерToolStripMenuItem";
-            this.диспетчерToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.диспетчерToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.диспетчерToolStripMenuItem.Text = "Диспетчер";
+            this.диспетчерToolStripMenuItem.Click += new System.EventHandler(this.диспетчерToolStripMenuItem_Click);
             // 
             // отделКадровToolStripMenuItem
             // 
             this.отделКадровToolStripMenuItem.Name = "отделКадровToolStripMenuItem";
-            this.отделКадровToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.отделКадровToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.отделКадровToolStripMenuItem.Text = "Отдел кадров";
+            this.отделКадровToolStripMenuItem.Click += new System.EventHandler(this.отделКадровToolStripMenuItem_Click);
+            // 
+            // пользовательToolStripMenuItem
+            // 
+            this.пользовательToolStripMenuItem.Name = "пользовательToolStripMenuItem";
+            this.пользовательToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.пользовательToolStripMenuItem.Text = "Пользователь";
+            this.пользовательToolStripMenuItem.Click += new System.EventHandler(this.пользовательToolStripMenuItem_Click);
             // 
             // выборкаИзТаблицToolStripMenuItem
             // 
@@ -212,6 +224,7 @@
             this.выборкаДанныхToolStripMenuItem.Name = "выборкаДанныхToolStripMenuItem";
             this.выборкаДанныхToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.выборкаДанныхToolStripMenuItem.Text = "Выборка данных";
+            this.выборкаДанныхToolStripMenuItem.Click += new System.EventHandler(this.выборкаДанныхToolStripMenuItem_Click);
             // 
             // обновитьДанныеToolStripMenuItem
             // 
@@ -258,243 +271,6 @@
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(1062, 354);
             this.dataGridView1.TabIndex = 7;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tabControl1.Location = new System.Drawing.Point(618, 465);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(859, 375);
-            this.tabControl1.TabIndex = 8;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.dataGridView4);
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(851, 347);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView4
-            // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.name_company,
-            this.region,
-            this.city,
-            this.adress,
-            this.count_of_orders});
-            this.dataGridView4.Location = new System.Drawing.Point(6, 6);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.RowTemplate.Height = 25;
-            this.dataGridView4.Size = new System.Drawing.Size(839, 335);
-            this.dataGridView4.TabIndex = 11;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.dataGridView5);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(851, 347);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView5
-            // 
-            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.name_tarif,
-            this.class_of_goods,
-            this.lenght,
-            this.volume,
-            this.weight});
-            this.dataGridView5.Location = new System.Drawing.Point(6, 6);
-            this.dataGridView5.Name = "dataGridView5";
-            this.dataGridView5.RowTemplate.Height = 25;
-            this.dataGridView5.Size = new System.Drawing.Size(839, 335);
-            this.dataGridView5.TabIndex = 0;
-            this.dataGridView5.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView5_CellContentClick);
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.dataGridView6);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(851, 347);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView6
-            // 
-            this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView6.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.n_class,
-            this.desc});
-            this.dataGridView6.Location = new System.Drawing.Point(6, 6);
-            this.dataGridView6.Name = "dataGridView6";
-            this.dataGridView6.RowTemplate.Height = 25;
-            this.dataGridView6.Size = new System.Drawing.Size(839, 335);
-            this.dataGridView6.TabIndex = 0;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.dataGridView7);
-            this.tabPage4.Location = new System.Drawing.Point(4, 24);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(851, 347);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "tabPage4";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView7
-            // 
-            this.dataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView7.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.n_crew,
-            this.fio_lider,
-            this.size_crew,
-            this.exp_crew});
-            this.dataGridView7.Location = new System.Drawing.Point(6, 6);
-            this.dataGridView7.Name = "dataGridView7";
-            this.dataGridView7.RowTemplate.Height = 25;
-            this.dataGridView7.Size = new System.Drawing.Size(839, 335);
-            this.dataGridView7.TabIndex = 0;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.n_trip,
-            this.id_goods,
-            this.transp,
-            this.date_depar,
-            this.date_arr});
-            this.dataGridView2.Location = new System.Drawing.Point(29, 68);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 25;
-            this.dataGridView2.Size = new System.Drawing.Size(557, 354);
-            this.dataGridView2.TabIndex = 9;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id_transp,
-            this.crew,
-            this.max_volume,
-            this.max_weight,
-            this.name_transp});
-            this.dataGridView3.Location = new System.Drawing.Point(29, 486);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowTemplate.Height = 25;
-            this.dataGridView3.Size = new System.Drawing.Size(557, 354);
-            this.dataGridView3.TabIndex = 10;
-            this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(29, 44);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 21);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Рейсы";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(29, 462);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 21);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Транспорт";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(618, 44);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 21);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Заказы";
-            // 
-            // id_transp
-            // 
-            this.id_transp.HeaderText = "ID транспорта";
-            this.id_transp.Name = "id_transp";
-            this.id_transp.ReadOnly = true;
-            // 
-            // crew
-            // 
-            this.crew.HeaderText = "Экипаж";
-            this.crew.Name = "crew";
-            this.crew.ReadOnly = true;
-            // 
-            // max_volume
-            // 
-            this.max_volume.HeaderText = "Максимальный объем";
-            this.max_volume.Name = "max_volume";
-            this.max_volume.ReadOnly = true;
-            // 
-            // max_weight
-            // 
-            this.max_weight.HeaderText = "Максимальный вес";
-            this.max_weight.Name = "max_weight";
-            this.max_weight.ReadOnly = true;
-            // 
-            // name_transp
-            // 
-            this.name_transp.HeaderText = "Наименование транспорта";
-            this.name_transp.Name = "name_transp";
-            this.name_transp.ReadOnly = true;
-            // 
-            // n_trip
-            // 
-            this.n_trip.HeaderText = "Номер рейса";
-            this.n_trip.Name = "n_trip";
-            this.n_trip.ReadOnly = true;
-            // 
-            // id_goods
-            // 
-            this.id_goods.HeaderText = "ID заказа";
-            this.id_goods.Name = "id_goods";
-            this.id_goods.ReadOnly = true;
-            // 
-            // transp
-            // 
-            this.transp.HeaderText = "Транспорт";
-            this.transp.Name = "transp";
-            this.transp.ReadOnly = true;
-            // 
-            // date_depar
-            // 
-            this.date_depar.HeaderText = "Дата отправления";
-            this.date_depar.Name = "date_depar";
-            this.date_depar.ReadOnly = true;
-            // 
-            // date_arr
-            // 
-            this.date_arr.HeaderText = "Дата прибытия";
-            this.date_arr.Name = "date_arr";
-            this.date_arr.ReadOnly = true;
             // 
             // id
             // 
@@ -549,6 +325,45 @@
             this.tarif.ReadOnly = true;
             this.tarif.Width = 120;
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tabControl1.Location = new System.Drawing.Point(618, 465);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(859, 375);
+            this.tabControl1.TabIndex = 8;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.dataGridView4);
+            this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(851, 347);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView4
+            // 
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.name_company,
+            this.region,
+            this.city,
+            this.adress,
+            this.count_of_orders});
+            this.dataGridView4.Location = new System.Drawing.Point(6, 6);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.RowTemplate.Height = 25;
+            this.dataGridView4.Size = new System.Drawing.Size(839, 335);
+            this.dataGridView4.TabIndex = 11;
+            // 
             // name_company
             // 
             this.name_company.HeaderText = "Название компании";
@@ -583,6 +398,32 @@
             this.count_of_orders.Name = "count_of_orders";
             this.count_of_orders.ReadOnly = true;
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.dataGridView5);
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(851, 347);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView5
+            // 
+            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.name_tarif,
+            this.class_of_goods,
+            this.lenght,
+            this.volume,
+            this.weight});
+            this.dataGridView5.Location = new System.Drawing.Point(6, 6);
+            this.dataGridView5.Name = "dataGridView5";
+            this.dataGridView5.RowTemplate.Height = 25;
+            this.dataGridView5.Size = new System.Drawing.Size(839, 335);
+            this.dataGridView5.TabIndex = 0;
+            // 
             // name_tarif
             // 
             this.name_tarif.HeaderText = "Тариф";
@@ -615,6 +456,29 @@
             this.weight.ReadOnly = true;
             this.weight.Width = 120;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.dataGridView6);
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(851, 347);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView6
+            // 
+            this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView6.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.n_class,
+            this.desc});
+            this.dataGridView6.Location = new System.Drawing.Point(6, 6);
+            this.dataGridView6.Name = "dataGridView6";
+            this.dataGridView6.RowTemplate.Height = 25;
+            this.dataGridView6.Size = new System.Drawing.Size(839, 335);
+            this.dataGridView6.TabIndex = 0;
+            // 
             // n_class
             // 
             this.n_class.HeaderText = "Номер класса";
@@ -627,6 +491,31 @@
             this.desc.Name = "desc";
             this.desc.ReadOnly = true;
             this.desc.Width = 200;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.dataGridView7);
+            this.tabPage4.Location = new System.Drawing.Point(4, 24);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(851, 347);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView7
+            // 
+            this.dataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView7.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.n_crew,
+            this.fio_lider,
+            this.size_crew,
+            this.exp_crew});
+            this.dataGridView7.Location = new System.Drawing.Point(6, 6);
+            this.dataGridView7.Name = "dataGridView7";
+            this.dataGridView7.RowTemplate.Height = 25;
+            this.dataGridView7.Size = new System.Drawing.Size(839, 335);
+            this.dataGridView7.TabIndex = 0;
             // 
             // n_crew
             // 
@@ -652,6 +541,126 @@
             this.exp_crew.HeaderText = "Опыт";
             this.exp_crew.Name = "exp_crew";
             this.exp_crew.ReadOnly = true;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.n_trip,
+            this.id_goods,
+            this.transp,
+            this.date_depar,
+            this.date_arr});
+            this.dataGridView2.Location = new System.Drawing.Point(29, 68);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowTemplate.Height = 25;
+            this.dataGridView2.Size = new System.Drawing.Size(557, 354);
+            this.dataGridView2.TabIndex = 9;
+            // 
+            // n_trip
+            // 
+            this.n_trip.HeaderText = "Номер рейса";
+            this.n_trip.Name = "n_trip";
+            this.n_trip.ReadOnly = true;
+            // 
+            // id_goods
+            // 
+            this.id_goods.HeaderText = "ID заказа";
+            this.id_goods.Name = "id_goods";
+            this.id_goods.ReadOnly = true;
+            // 
+            // transp
+            // 
+            this.transp.HeaderText = "Транспорт";
+            this.transp.Name = "transp";
+            this.transp.ReadOnly = true;
+            // 
+            // date_depar
+            // 
+            this.date_depar.HeaderText = "Дата отправления";
+            this.date_depar.Name = "date_depar";
+            this.date_depar.ReadOnly = true;
+            // 
+            // date_arr
+            // 
+            this.date_arr.HeaderText = "Дата прибытия";
+            this.date_arr.Name = "date_arr";
+            this.date_arr.ReadOnly = true;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_transp,
+            this.crew,
+            this.max_volume,
+            this.max_weight,
+            this.name_transp});
+            this.dataGridView3.Location = new System.Drawing.Point(29, 486);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowTemplate.Height = 25;
+            this.dataGridView3.Size = new System.Drawing.Size(557, 354);
+            this.dataGridView3.TabIndex = 10;
+            // 
+            // id_transp
+            // 
+            this.id_transp.HeaderText = "ID транспорта";
+            this.id_transp.Name = "id_transp";
+            this.id_transp.ReadOnly = true;
+            // 
+            // crew
+            // 
+            this.crew.HeaderText = "Экипаж";
+            this.crew.Name = "crew";
+            this.crew.ReadOnly = true;
+            // 
+            // max_volume
+            // 
+            this.max_volume.HeaderText = "Максимальный объем";
+            this.max_volume.Name = "max_volume";
+            this.max_volume.ReadOnly = true;
+            // 
+            // max_weight
+            // 
+            this.max_weight.HeaderText = "Максимальный вес";
+            this.max_weight.Name = "max_weight";
+            this.max_weight.ReadOnly = true;
+            // 
+            // name_transp
+            // 
+            this.name_transp.HeaderText = "Наименование транспорта";
+            this.name_transp.Name = "name_transp";
+            this.name_transp.ReadOnly = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(29, 44);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 21);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Рейсы";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(29, 462);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(85, 21);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Транспорт";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(618, 44);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 21);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Заказы";
             // 
             // Form1
             // 
@@ -756,5 +765,6 @@
         private DataGridViewTextBoxColumn max_volume;
         private DataGridViewTextBoxColumn max_weight;
         private DataGridViewTextBoxColumn name_transp;
+        private ToolStripMenuItem пользовательToolStripMenuItem;
     }
 }

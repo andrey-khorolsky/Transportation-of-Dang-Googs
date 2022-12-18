@@ -27,12 +27,11 @@ namespace Transportation_of_dangerous_goods
         }
 
 
-
-
         //удаление записей
         private void button3_Click(object sender, EventArgs e)
         {
             String strForDel = new string("delete from ");
+            string table;//создание выражения из разных кусков??
 
             switch (nTable)
             {
@@ -50,11 +49,17 @@ namespace Transportation_of_dangerous_goods
             {
                 case 0:
                     if (!textBox1.Equals(""))
-                        strForDel += "id = " + textBox1.Text;
+                    {
+                        if (checkBox1.Checked) strForDel += "id != " + textBox1.Text;
+                        else strForDel += "id = " + textBox1.Text;
+                    }
                     break;
                 case 1:
                     if (!textBox1.Equals(""))
+                    {
+                        if (checkBox1.Checked) strForDel += "trip_number != " + textBox1.Text;
                         strForDel += "trip_number = " + textBox1.Text;
+                    }
                     break;
                 case 2:
                     if (!textBox1.Equals(""))
@@ -80,15 +85,28 @@ namespace Transportation_of_dangerous_goods
             strForDel += ";";
 
             SqliteCommand comDel = new SqliteCommand(strForDel, connection);
+            SqliteCommand nc = new SqliteCommand("select count(*) from classes_of_goods where class_number=2;", connection);
+
+            
             try
             {
-                MessageBox.Show(
-                        "Удалено " + strForDel +" " + nTable + " записей",
-                        "Удаление",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information,
-                        MessageBoxDefaultButton.Button1,
-                        MessageBoxOptions.DefaultDesktopOnly);
+                DialogResult result = MessageBox.Show(
+                       "Будет удалено " + nc.ExecuteScalar() + " записей",
+                       "Удаление",
+                       MessageBoxButtons.YesNo,
+                       MessageBoxIcon.Question,
+                       MessageBoxDefaultButton.Button1,
+                       MessageBoxOptions.DefaultDesktopOnly);
+
+                if (result == DialogResult.Yes)
+                    MessageBox.Show(
+                            "Записи удалены",
+                            "Удаление",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information,
+                            MessageBoxDefaultButton.Button1,
+                            MessageBoxOptions.DefaultDesktopOnly);
+
             }
             catch
             {
@@ -114,7 +132,7 @@ namespace Transportation_of_dangerous_goods
 
 
         //выбор таблицы для добавления
-        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             Label[] lbl = { label1, label2, label3, label4, label5, label6, label7, label8 };
             TextBox[] txb = { textBox1, textBox2, textBox3, textBox4, textBox5, textBox6, textBox7, textBox8 };

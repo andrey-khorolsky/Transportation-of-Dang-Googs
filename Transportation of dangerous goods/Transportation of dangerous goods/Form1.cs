@@ -1,5 +1,6 @@
 using Microsoft.Data.Sqlite;
 using System.IO;
+using System.Reflection.PortableExecutable;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -8,99 +9,12 @@ namespace Transportation_of_dangerous_goods
     public partial class Form1 : Form
     {
 
+        //variables
         SqliteConnection connection;
+        protected static string role = "user";
 
-        public Form1()
+        public void updTables()
         {
-            InitializeComponent();
-            tabPage1.Text = "Компании";
-            tabPage2.Text = "Тарифы";
-            tabPage3.Text = "Клсааы опасных грузов";
-            tabPage4.Text = "Экипажи";
-            connection = new SqliteConnection("Data Source=../../../Trans_dangerous_goods_DB.db");
-            connection.Open();
-        }
-
-
-        //добавление данных
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (connection == null) return;
-
-            SqliteCommand command = new SqliteCommand("update classes_of_goods set desc='окисляющие вещества'");
-            command.Connection = connection;
-            //command.ExecuteNonQuery();
-
-            Form addF = new addElement();
-            addF.Show();
-
-        }
-
-        //открытие файла БД
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            connection = new SqliteConnection("Data Source=../../../Trans_dangerous_goods_DB.db");
-            connection.Open();
-
-        }
-
-        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            connection.Close();
-        }
-
-        private void status_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        //вывод данных
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (connection == null) return;
-
-            SqliteCommand comShow = new SqliteCommand("select * from orders", connection);
-            SqliteDataReader reader = comShow.ExecuteReader();
-            dataGridView1.Rows.Clear();
-
-            while (reader.Read())
-            {
-                dataGridView1.Rows.Add(reader.GetValue(0), reader.GetValue(1), reader.GetValue(2), reader.GetValue(3), reader.GetValue(4), reader.GetValue(5), reader.GetValue(6), reader.GetValue(7));
-            }
-
-            SqliteCommand comShow2 = new SqliteCommand("select * from trip", connection);
-            SqliteDataReader reader2 = comShow2.ExecuteReader();
-            dataGridView2.Rows.Clear();
-
-            while (reader2.Read())
-            {
-                dataGridView2.Rows.Add(reader2.GetValue(0), reader2.GetValue(1), reader2.GetValue(2), reader2.GetValue(3), reader2.GetValue(4));
-            }
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void выборкаИзТаблицToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void добавитьДанныеToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new addElement().Show();
-        }
-
-        private void обновитьДанныеToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (connection == null) return;
             SqliteCommand comShow;
             SqliteDataReader reader;
 
@@ -108,7 +22,6 @@ namespace Transportation_of_dangerous_goods
             comShow = new SqliteCommand("select * from orders", connection);
             reader = comShow.ExecuteReader();
             dataGridView1.Rows.Clear();
-
             while (reader.Read())
             {
                 dataGridView1.Rows.Add(reader.GetValue(0), reader.GetValue(1), reader.GetValue(2), reader.GetValue(3), reader.GetValue(4), reader.GetValue(5), reader.GetValue(6), reader.GetValue(7));
@@ -118,7 +31,6 @@ namespace Transportation_of_dangerous_goods
             comShow = new SqliteCommand("select * from trip", connection);
             reader = comShow.ExecuteReader();
             dataGridView2.Rows.Clear();
-
             while (reader.Read())
             {
                 dataGridView2.Rows.Add(reader.GetValue(0), reader.GetValue(1), reader.GetValue(2), reader.GetValue(3), reader.GetValue(4));
@@ -128,7 +40,6 @@ namespace Transportation_of_dangerous_goods
             comShow = new SqliteCommand("select * from transport", connection);
             reader = comShow.ExecuteReader();
             dataGridView3.Rows.Clear();
-
             while (reader.Read())
             {
                 dataGridView3.Rows.Add(reader.GetValue(0), reader.GetValue(1), reader.GetValue(2), reader.GetValue(3), reader.GetValue(4));
@@ -138,7 +49,6 @@ namespace Transportation_of_dangerous_goods
             comShow = new SqliteCommand("select * from company", connection);
             reader = comShow.ExecuteReader();
             dataGridView4.Rows.Clear();
-
             while (reader.Read())
             {
                 dataGridView4.Rows.Add(reader.GetValue(0), reader.GetValue(1), reader.GetValue(2), reader.GetValue(3), reader.GetValue(4));
@@ -175,19 +85,143 @@ namespace Transportation_of_dangerous_goods
             }
         }
 
-        private void dataGridView5_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        //крнструктор
+        public Form1()
+        {
+            InitializeComponent();
+            tabPage1.Text = "Компании";
+            tabPage2.Text = "Тарифы";
+            tabPage3.Text = "Клсааы опасных грузов";
+            tabPage4.Text = "Экипажи";
+            connection = new SqliteConnection("Data Source=../../../Trans_dangerous_goods_DB.db");
+            connection.Open();
+            updTables();
+        }
+
+
+        //открытие файла БД
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            connection = new SqliteConnection("Data Source=../../../Trans_dangerous_goods_DB.db");
+            connection.Open();
+
+        }
+
+
+        //закрытие БД
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            connection.Close();
+        }
+
+
+        private void выборкаИзТаблицToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
+        //окно для добавления данных
+        private void добавитьДанныеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (role == "user")
+            {
+                MessageBox.Show(
+                    "У Вас недостаточно полномочий для этого действия",
+                    "Невозможно выполнить действие",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+            new addElement().Show();
         }
 
+
+        //обновление таблиц
+        private void обновитьДанныеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (connection == null) return;
+
+            updTables();
+        }
+
+
+        //окно для удаления данных
         private void удалитьДанныеToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (role == "user")
+            {
+                MessageBox.Show(
+                    "У Вас недостаточно полномочий для этого действия",
+                    "Невозможно выполнить действие",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
             new deleteElement().Show();
+        }
+
+
+        //смена роли на администратора
+        private void администраторToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (new changeRole("admin").ShowDialog(this) == DialogResult.OK)
+            {
+                MessageBox.Show(
+                    "Тперь Вы в роли администратора!",
+                    "Смена роли",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                role = "admin";
+            }
+        }
+
+
+        //смена роли на диспетчера
+        private void диспетчерToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (new changeRole("dispatcher").ShowDialog(this) == DialogResult.OK)
+            {
+                MessageBox.Show(
+                    "Тперь Вы в роли диспетчера!",
+                    "Смена роли",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                role = "dispatcher";
+            }
+        }
+
+
+        //смена роли на отдел кадров
+        private void отделКадровToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (new changeRole("hr").ShowDialog(this) == DialogResult.OK)
+            {
+                MessageBox.Show(
+                    "Тперь Вы в роли отдела кадров!",
+                    "Смена роли",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                role = "hr";
+            }
+        }
+
+
+        //смена роли на пользователя
+        private void пользовательToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+                "Тперь Вы в роли пользователя!",
+                "Смена роли",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+            role = "user";
+        }
+
+        private void выборкаДанныхToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new selectElement().Show();
         }
     }
 }
