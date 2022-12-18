@@ -95,8 +95,7 @@ namespace Transportation_of_dangerous_goods
 
         private void äîáàâèòüÄàííûåToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form addF = new addElement();
-            addF.Show();
+            new addElement().Show();
         }
 
         private void îáíîâèòüÄàííûåToolStripMenuItem_Click(object sender, EventArgs e)
@@ -188,7 +187,7 @@ namespace Transportation_of_dangerous_goods
 
         private void óäàëèòüÄàííûåToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            new deleteElement().Show();
         }
     }
 }

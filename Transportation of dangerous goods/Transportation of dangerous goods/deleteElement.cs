@@ -11,15 +11,14 @@ using System.Windows.Forms;
 
 namespace Transportation_of_dangerous_goods
 {
-    public partial class addElement : Form
+    public partial class deleteElement : Form
     {
         
         SqliteConnection connection;
         int nTable = 0;
         String[] currtab = new string[] { "ID", "От кого", "Кому", "Груз", "Класс груза", "Объем груза", "Вес груза", "Тариф" };
 
-
-    public addElement()
+        public deleteElement()
         {
             InitializeComponent();
             connection = new SqliteConnection("Data Source=../../../Trans_dangerous_goods_DB.db");
@@ -27,77 +26,83 @@ namespace Transportation_of_dangerous_goods
             comboBox1.SelectedIndex = 0;
         }
 
-        private void label1_Click(object sender, EventArgs e)
+
+
+
+        //удаление записей
+        private void button3_Click(object sender, EventArgs e)
         {
+            String strForDel = new string("delete from ");
 
-        }
-
-        //добавление в таблицу
-        private void button1_Click(object sender, EventArgs e)
-        {
-            String str = String.Format("insert into orders " +
-                    "values ({0}, '{1}', '{2}', '{3}', {4}, {5}, {6}, '{7}');", textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text,
-                    textBox5.Text, textBox6.Text, textBox7.Text, textBox8.Text);
-
-            switch (nTable) {
-
-                case (0)://orders
-                    str = String.Format("insert into orders " +
-                    "values ({0}, '{1}', '{2}', '{3}', {4}, {5}, {6}, '{7}');", textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text,
-                    textBox5.Text, textBox6.Text, textBox7.Text, textBox8.Text);
-                    break;
-
-                case (1)://trip
-                    str = String.Format("insert into trip " +
-                    "values ({0}, {1}, {2}, '{3}', '{4}');", textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text,
-                    textBox5.Text);
-                    break;
-
-                case (2)://transport
-                    str = String.Format("insert into transport " +
-                    "values ({0}, {1}, {2}, {3}, '{4}');", textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text,
-                    textBox5.Text);
-                    break;
-
-                case (3)://company
-                    str = String.Format("insert into company " +
-                    "values ('{0}', '{1}', '{2}', '{3}', {4});", textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text,
-                    textBox5.Text);
-                    break;
-
-                case (4)://tarif
-                    str = String.Format("insert into tarif " +
-                    "values ('{0}', {1}, {2}, {3}, {4});", textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text,
-                    textBox5.Text);
-                    break;
-
-                case (5)://classes_of_goods
-                    str = String.Format("insert into classes_of_goods " +
-                    "values ({0}, '{1}');", textBox1.Text, textBox2.Text);
-                    break;
-
-                case (6)://crew
-                    str = String.Format("insert into crew " +
-                    "values ({0}, '{1}', {2}, {3});", textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text);
-                    break;
+            switch (nTable)
+            {
+                case 0: strForDel += "orders "; break;
+                case 1: strForDel += "trip "; break;
+                case 2: strForDel += "transport "; break;
+                case 3: strForDel += "company "; break;
+                case 4: strForDel += "tarif "; break;
+                case 5: strForDel += "classes_of_goods "; break;
+                case 6: strForDel += "crew "; break;
             }
 
+            strForDel += "where ";
+            switch (nTable)
+            {
+                case 0:
+                    if (!textBox1.Equals(""))
+                        strForDel += "id = " + textBox1.Text;
+                    break;
+                case 1:
+                    if (!textBox1.Equals(""))
+                        strForDel += "trip_number = " + textBox1.Text;
+                    break;
+                case 2:
+                    if (!textBox1.Equals(""))
+                        strForDel += "id = " + textBox1.Text;
+                    break;
+                case 3:
+                    if (!textBox1.Equals(""))
+                        strForDel += "name = " + textBox1.Text;
+                    break;
+                case 4:
+                    if (!textBox1.Equals(""))
+                        strForDel += "tarif_name = " + textBox1.Text;
+                    break;
+                case 5:
+                    if (!textBox1.Equals(""))
+                        strForDel += "class_number = " + textBox1.Text;
+                    break;
+                case 6:
+                    if (!textBox1.Equals(""))
+                        strForDel += "number_crew = " + textBox1.Text;
+                    break;
+            }
+            strForDel += ";";
+
+            SqliteCommand comDel = new SqliteCommand(strForDel, connection);
             try
             {
-                SqliteCommand command = new SqliteCommand(str, connection);
-                command.ExecuteNonQuery();
+                MessageBox.Show(
+                        "Удалено " + strForDel +" " + nTable + " записей",
+                        "Удаление",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information,
+                        MessageBoxDefaultButton.Button1,
+                        MessageBoxOptions.DefaultDesktopOnly);
             }
             catch
             {
                 MessageBox.Show(
-                    "Ошибка при добвалении",
-                    "Ошибка",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error,
-                    MessageBoxDefaultButton.Button1,
-                    MessageBoxOptions.DefaultDesktopOnly);
+                        "Ошибка при удалении записей",
+                        "Ошибка",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error,
+                        MessageBoxDefaultButton.Button1,
+                        MessageBoxOptions.DefaultDesktopOnly);
             }
         }
+
+
 
         //закрытие формы
         private void button2_Click(object sender, EventArgs e)
@@ -106,8 +111,10 @@ namespace Transportation_of_dangerous_goods
             form.Close();
         }
 
+
+
         //выбор таблицы для добавления
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             Label[] lbl = { label1, label2, label3, label4, label5, label6, label7, label8 };
             TextBox[] txb = { textBox1, textBox2, textBox3, textBox4, textBox5, textBox6, textBox7, textBox8 };
@@ -130,7 +137,7 @@ namespace Transportation_of_dangerous_goods
                     currtab = new string[] { "Номер рейса", "ID заказа", "Транспорт", "Дата отправления", "Дата прибытия" };
                     nTable = 1;
                     break;
-                
+
                 case 2://transport
                     currtab = new string[] { "ID транспорта", "Экипаж", "Мкасимальный объем", "Максимальный вес", "Наименование" };
                     nTable = 2;
@@ -167,10 +174,6 @@ namespace Transportation_of_dangerous_goods
                 lbl[i].Hide();
             }
         }
-
-        //удаление из таблицы
-        private void button3_Click(object sender, EventArgs e)
-        {
-        }  
     }
+    
 }
