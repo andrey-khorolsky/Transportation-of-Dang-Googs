@@ -96,6 +96,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.изменитьДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -168,28 +169,28 @@
             // администраторToolStripMenuItem
             // 
             this.администраторToolStripMenuItem.Name = "администраторToolStripMenuItem";
-            this.администраторToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.администраторToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.администраторToolStripMenuItem.Text = "Администратор";
             this.администраторToolStripMenuItem.Click += new System.EventHandler(this.администраторToolStripMenuItem_Click);
             // 
             // диспетчерToolStripMenuItem
             // 
             this.диспетчерToolStripMenuItem.Name = "диспетчерToolStripMenuItem";
-            this.диспетчерToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.диспетчерToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.диспетчерToolStripMenuItem.Text = "Диспетчер";
             this.диспетчерToolStripMenuItem.Click += new System.EventHandler(this.диспетчерToolStripMenuItem_Click);
             // 
             // отделКадровToolStripMenuItem
             // 
             this.отделКадровToolStripMenuItem.Name = "отделКадровToolStripMenuItem";
-            this.отделКадровToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.отделКадровToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.отделКадровToolStripMenuItem.Text = "Отдел кадров";
             this.отделКадровToolStripMenuItem.Click += new System.EventHandler(this.отделКадровToolStripMenuItem_Click);
             // 
             // пользовательToolStripMenuItem
             // 
             this.пользовательToolStripMenuItem.Name = "пользовательToolStripMenuItem";
-            this.пользовательToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.пользовательToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.пользовательToolStripMenuItem.Text = "Пользователь";
             this.пользовательToolStripMenuItem.Click += new System.EventHandler(this.пользовательToolStripMenuItem_Click);
             // 
@@ -198,6 +199,7 @@
             this.выборкаИзТаблицToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.добавитьДанныеToolStripMenuItem,
             this.удалитьДанныеToolStripMenuItem,
+            this.изменитьДанныеToolStripMenuItem,
             this.выборкаДанныхToolStripMenuItem,
             this.обновитьДанныеToolStripMenuItem});
             this.выборкаИзТаблицToolStripMenuItem.Name = "выборкаИзТаблицToolStripMenuItem";
@@ -662,6 +664,13 @@
             this.label3.TabIndex = 13;
             this.label3.Text = "Заказы";
             // 
+            // изменитьДанныеToolStripMenuItem
+            // 
+            this.изменитьДанныеToolStripMenuItem.Name = "изменитьДанныеToolStripMenuItem";
+            this.изменитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.изменитьДанныеToolStripMenuItem.Text = "Изменить данные";
+            this.изменитьДанныеToolStripMenuItem.Click += new System.EventHandler(this.изменитьДанныеToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -766,5 +775,6 @@
         private DataGridViewTextBoxColumn max_weight;
         private DataGridViewTextBoxColumn name_transp;
         private ToolStripMenuItem пользовательToolStripMenuItem;
+        private ToolStripMenuItem изменитьДанныеToolStripMenuItem;
     }
 }

@@ -15,18 +15,18 @@ namespace Transportation_of_dangerous_goods
     public partial class selectElement : Form
     {
 
-        int nTable;
         string[] currtab;
         string expression, table;
         SqliteConnection connection;
+        Form1 f1;
 
-        public selectElement()
+        public selectElement(Form1 f)
         {
             InitializeComponent();
             connection = new SqliteConnection("Data Source=../../../Trans_dangerous_goods_DB.db");
             connection.Open();
             comboBox1.SelectedIndex = 0;
-            nTable = 0;
+            f1 = f;
             currtab = new string[] { "ID", "От кого", "Кому", "Груз", "Класс груза", "Объем груза", "Вес груза", "Тариф" };
         }
 
@@ -86,37 +86,31 @@ namespace Transportation_of_dangerous_goods
             {
                 case 0://orders
                     currtab = new string[] { "ID", "От кого", "Кому", "Груз", "Класс груза", "Объем груза", "Вес груза", "Тариф" };
-                    nTable = 0;
                     label1.Text = currtab[0];
                     break;
 
                 case 1://trip
                     currtab = new string[] { "Номер рейса", "ID заказа", "Транспорт", "Дата отправления", "Дата прибытия" };
-                    nTable = 1;
                     label1.Text = currtab[0];
                     break;
 
                 case 2://transport
                     currtab = new string[] { "ID транспорта", "Экипаж", "Мкасимальный объем", "Максимальный вес", "Наименование" };
-                    nTable = 2;
                     label1.Text = currtab[0];
                     break;
 
                 case 3://company
                     currtab = new string[] { "Название", "Регион", "Город", "Адрес", "Количество заказов" };
-                    nTable = 3;
                     label1.Text = currtab[0];
                     break;
 
                 case 4://tarif
                     currtab = new string[] { "Название", "Классы грузов", "Цена за км", "Цена за м3", "Цена за тонну" };
-                    nTable = 4;
                     label1.Text = currtab[0];
                     break;
 
                 case 5://classes_of_goods
                     currtab = new string[] { "Номер класса", "Пояснение" };
-                    nTable = 5;
                     label1.Text = currtab[0];
                     break;
 
@@ -177,6 +171,15 @@ namespace Transportation_of_dangerous_goods
             return res;
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void selectElement_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            f1.closeSelectWin();
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -291,6 +294,7 @@ namespace Transportation_of_dangerous_goods
             expression += ";";
             MessageBox.Show(expression);
             changeTable();
+            f1.updTables();
         }
     }
 }

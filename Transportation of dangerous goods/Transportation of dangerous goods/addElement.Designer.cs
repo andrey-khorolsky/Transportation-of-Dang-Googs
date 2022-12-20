@@ -254,6 +254,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "addElement";
             this.Text = "Добавление записей";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.addElement_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

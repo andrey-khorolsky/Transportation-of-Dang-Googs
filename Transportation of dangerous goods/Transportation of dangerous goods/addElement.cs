@@ -13,17 +13,19 @@ namespace Transportation_of_dangerous_goods
 {
     public partial class addElement : Form
     {
-        
+
+        Form1 f1;
         SqliteConnection connection;
         int nTable = 0;
-        String[] currtab = new string[] { "ID", "От кого", "Кому", "Груз", "Класс груза", "Объем груза", "Вес груза", "Тариф" };
+        string[] currtab = new string[] { "ID", "От кого", "Кому", "Груз", "Класс груза", "Объем груза", "Вес груза", "Тариф" };
 
 
-    public addElement()
+    public addElement(Form1 f)
         {
             InitializeComponent();
             connection = new SqliteConnection("Data Source=../../../Trans_dangerous_goods_DB.db");
             connection.Open();
+            f1 = f;
             comboBox1.SelectedIndex = 0;
         }
 
@@ -82,6 +84,7 @@ namespace Transportation_of_dangerous_goods
             {
                 SqliteCommand command = new SqliteCommand(str, connection);
                 command.ExecuteNonQuery();
+                f1.updTables();
             }
             catch
             {
@@ -95,12 +98,14 @@ namespace Transportation_of_dangerous_goods
             }
         }
 
+
         //закрытие формы
         private void button2_Click(object sender, EventArgs e)
         {
-            Form form = this;
-            form.Close();
+            f1.setAddFalse();
+            Close();
         }
+
 
         //выбор таблицы для добавления
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -164,9 +169,9 @@ namespace Transportation_of_dangerous_goods
             }
         }
 
-        //удаление из таблицы
-        private void button3_Click(object sender, EventArgs e)
+        private void addElement_FormClosed(object sender, FormClosedEventArgs e)
         {
-        }  
+            f1.setAddFalse();
+        }
     }
 }

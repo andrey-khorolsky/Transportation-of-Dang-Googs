@@ -10,9 +10,32 @@ namespace Transportation_of_dangerous_goods
     {
 
         //variables
+        bool addW = false,
+            delW = false,
+            chaW = false;
+        int selW = 0;
         SqliteConnection connection;
-        protected static string role = "user";
+        protected static string role = "admin";
 
+        public void setAddFalse()
+        {
+            addW = false;
+        }
+
+        public void setDelFalse()
+        {
+            delW = false;
+        }
+
+        public void setChaFalse()
+        {
+            chaW = false;
+        }
+
+        public void closeSelectWin()
+        {
+            selW -= 1;
+        }
 
         public void updTables()
         {
@@ -126,6 +149,7 @@ namespace Transportation_of_dangerous_goods
         //окно для добавления данных
         private void добавитьДанныеToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (addW) return;
             if (role == "user")
             {
                 MessageBox.Show(
@@ -135,7 +159,8 @@ namespace Transportation_of_dangerous_goods
                     MessageBoxIcon.Error);
                 return;
             }
-            new addElement().Show();
+            new addElement(this).Show();
+            addW = true;
         }
 
 
@@ -151,6 +176,8 @@ namespace Transportation_of_dangerous_goods
         //окно для удаления данных
         private void удалитьДанныеToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (delW) return;
+
             if (role == "user")
             {
                 MessageBox.Show(
@@ -160,7 +187,8 @@ namespace Transportation_of_dangerous_goods
                     MessageBoxIcon.Error);
                 return;
             }
-            new deleteElement().Show();
+            new deleteElement(this).Show();
+            delW = true;
         }
 
 
@@ -220,9 +248,22 @@ namespace Transportation_of_dangerous_goods
             role = "user";
         }
 
+        private void изменитьДанныеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (chaW) return;
+            new changeElement(this).Show();
+            chaW = true;
+        }
+
+
+        //открытие окна для выборки
         private void выборкаДанныхToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new selectElement().Show();
+            if (selW < 2)
+            {
+                new selectElement(this).Show();
+                selW += 1;
+            }
         }
     }
 }
