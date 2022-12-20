@@ -118,8 +118,16 @@ namespace Transportation_of_dangerous_goods
             tabPage2.Text = "Тарифы";
             tabPage3.Text = "Клсааы опасных грузов";
             tabPage4.Text = "Экипажи";
+            openFileDialog1.Filter = "Data base files(*.db)|*.db";
+            saveFileDialog1.Filter = "Data base files(*.db)|*.db";
+            saveFileDialog1.Title = "Выбор файла для сохранения";
+            saveFileDialog1.InitialDirectory = "../../..";
+            saveFileDialog1.DefaultExt = ".db";
+            openFileDialog1.InitialDirectory = "../../..";
+            openFileDialog1.Title = "Выбор файла для открытия";
             connection = new SqliteConnection("Data Source=../../../Trans_dangerous_goods_DB.db");
             connection.Open();
+            label4.Text = "Подключение установлено";
             updTables();
         }
 
@@ -127,9 +135,13 @@ namespace Transportation_of_dangerous_goods
         //открытие файла БД
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            connection = new SqliteConnection("Data Source=../../../Trans_dangerous_goods_DB.db");
+            if (openFileDialog1.ShowDialog() == DialogResult.Cancel)
+                return;
+            //connection.Close();
+            connection = new SqliteConnection("Data Source=" + openFileDialog1.FileName);
             connection.Open();
-
+            label4.Text = "Подключение установлено";
+            updTables();
         }
 
 
@@ -137,6 +149,7 @@ namespace Transportation_of_dangerous_goods
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             connection.Close();
+            label4.Text = "Отключено";
         }
 
 
@@ -241,13 +254,34 @@ namespace Transportation_of_dangerous_goods
         private void пользовательToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show(
-                "Тперь Вы в роли пользователя!",
+                "Теперь Вы в роли пользователя!",
                 "Смена роли",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
             role = "user";
         }
 
+
+        //сохранение файла
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //if (connection.State.ToString().Equals("open"))
+            //{
+            //    MessageBox.Show(
+            //    "Нельзя сохранить данные, так как отсутствует подключение",
+            //    "Сохранение невозможно",
+            //    MessageBoxButtons.OK,
+            //    MessageBoxIcon.Error);
+            //    return;
+            //}
+                if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
+                return;
+            File.Delete(saveFileDialog1.FileName);
+            File.Copy(connection.DataSource, saveFileDialog1.FileName);
+        }
+
+
+        //открытие окна для изменения данных
         private void изменитьДанныеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (chaW) return;

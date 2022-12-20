@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(changeElement));
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -330,6 +331,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.Enabled = false;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Заказы",
@@ -490,8 +492,9 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "changeElement";
-            this.Text = "changeElement";
+            this.Text = "Изменение данных";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.changeElement_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();

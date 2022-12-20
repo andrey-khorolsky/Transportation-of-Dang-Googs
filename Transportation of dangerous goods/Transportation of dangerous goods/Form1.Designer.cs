@@ -42,6 +42,7 @@
             this.выборкаИзТаблицToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.добавитьДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.изменитьДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выборкаДанныхToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.обновитьДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,7 +97,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.изменитьДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.label4 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -147,6 +150,7 @@
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.saveToolStripMenuItem.Text = "Сохранить";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // closeToolStripMenuItem
             // 
@@ -210,28 +214,35 @@
             // добавитьДанныеToolStripMenuItem
             // 
             this.добавитьДанныеToolStripMenuItem.Name = "добавитьДанныеToolStripMenuItem";
-            this.добавитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.добавитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.добавитьДанныеToolStripMenuItem.Text = "Добавить данные";
             this.добавитьДанныеToolStripMenuItem.Click += new System.EventHandler(this.добавитьДанныеToolStripMenuItem_Click);
             // 
             // удалитьДанныеToolStripMenuItem
             // 
             this.удалитьДанныеToolStripMenuItem.Name = "удалитьДанныеToolStripMenuItem";
-            this.удалитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.удалитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.удалитьДанныеToolStripMenuItem.Text = "Удалить данные";
             this.удалитьДанныеToolStripMenuItem.Click += new System.EventHandler(this.удалитьДанныеToolStripMenuItem_Click);
+            // 
+            // изменитьДанныеToolStripMenuItem
+            // 
+            this.изменитьДанныеToolStripMenuItem.Name = "изменитьДанныеToolStripMenuItem";
+            this.изменитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.изменитьДанныеToolStripMenuItem.Text = "Изменить данные";
+            this.изменитьДанныеToolStripMenuItem.Click += new System.EventHandler(this.изменитьДанныеToolStripMenuItem_Click);
             // 
             // выборкаДанныхToolStripMenuItem
             // 
             this.выборкаДанныхToolStripMenuItem.Name = "выборкаДанныхToolStripMenuItem";
-            this.выборкаДанныхToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.выборкаДанныхToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.выборкаДанныхToolStripMenuItem.Text = "Выборка данных";
             this.выборкаДанныхToolStripMenuItem.Click += new System.EventHandler(this.выборкаДанныхToolStripMenuItem_Click);
             // 
             // обновитьДанныеToolStripMenuItem
             // 
             this.обновитьДанныеToolStripMenuItem.Name = "обновитьДанныеToolStripMenuItem";
-            this.обновитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.обновитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.обновитьДанныеToolStripMenuItem.Text = "Обновить данные";
             this.обновитьДанныеToolStripMenuItem.Click += new System.EventHandler(this.обновитьДанныеToolStripMenuItem_Click);
             // 
@@ -664,18 +675,27 @@
             this.label3.TabIndex = 13;
             this.label3.Text = "Заказы";
             // 
-            // изменитьДанныеToolStripMenuItem
+            // openFileDialog1
             // 
-            this.изменитьДанныеToolStripMenuItem.Name = "изменитьДанныеToolStripMenuItem";
-            this.изменитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.изменитьДанныеToolStripMenuItem.Text = "Изменить данные";
-            this.изменитьДанныеToolStripMenuItem.Click += new System.EventHandler(this.изменитьДанныеToolStripMenuItem_Click);
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.SystemColors.Window;
+            this.label4.Location = new System.Drawing.Point(1502, 5);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(38, 15);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "label4";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1713, 852);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -776,5 +796,8 @@
         private DataGridViewTextBoxColumn name_transp;
         private ToolStripMenuItem пользовательToolStripMenuItem;
         private ToolStripMenuItem изменитьДанныеToolStripMenuItem;
+        private OpenFileDialog openFileDialog1;
+        private SaveFileDialog saveFileDialog1;
+        private Label label4;
     }
 }
