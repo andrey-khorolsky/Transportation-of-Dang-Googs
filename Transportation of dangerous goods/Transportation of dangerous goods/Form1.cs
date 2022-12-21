@@ -125,8 +125,9 @@ namespace Transportation_of_dangerous_goods
             saveFileDialog1.DefaultExt = ".db";
             openFileDialog1.InitialDirectory = "../../..";
             openFileDialog1.Title = "Выбор файла для открытия";
-            connection = new SqliteConnection("Data Source=../../../Trans_dangerous_goods_DB.db");
+            connection = new SqliteConnection("Data Source=C:\\TWO\\BD\\RGR\\Transportation of dangerous goods\\Transportation of dangerous goods\\Trans_dangerous_goods_DB.db");
             connection.Open();
+            this.Text = "Transportation of dangerous goods C:\\TWO\\BD\\RGR\\Transportation of dangerous goods\\Transportation of dangerous goods\\Trans_dangerous_goods_DB.db";
             label4.Text = "Подключение установлено";
             updTables();
         }
@@ -137,10 +138,13 @@ namespace Transportation_of_dangerous_goods
         {
             if (openFileDialog1.ShowDialog() == DialogResult.Cancel)
                 return;
-            //connection.Close();
+            connection.Close();
             connection = new SqliteConnection("Data Source=" + openFileDialog1.FileName);
             connection.Open();
+            this.Text = "Transportation of dangerous goods " + openFileDialog1.FileName;
             label4.Text = "Подключение установлено";
+            выборкаИзТаблицToolStripMenuItem.Enabled = true;
+            saveToolStripMenuItem.Enabled = true;
             updTables();
         }
 
@@ -149,13 +153,10 @@ namespace Transportation_of_dangerous_goods
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             connection.Close();
+            выборкаИзТаблицToolStripMenuItem.Enabled = false;
+            saveToolStripMenuItem.Enabled = false;
+            this.Text = "Transportation of dangerous goods";
             label4.Text = "Отключено";
-        }
-
-
-        private void выборкаИзТаблицToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
 
@@ -172,7 +173,7 @@ namespace Transportation_of_dangerous_goods
                     MessageBoxIcon.Error);
                 return;
             }
-            new addElement(this).Show();
+            new addElement(this, connection).Show();
             addW = true;
         }
 
@@ -200,7 +201,7 @@ namespace Transportation_of_dangerous_goods
                     MessageBoxIcon.Error);
                 return;
             }
-            new deleteElement(this).Show();
+            new deleteElement(this, connection).Show();
             delW = true;
         }
 
@@ -277,7 +278,26 @@ namespace Transportation_of_dangerous_goods
                 if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
                 return;
             File.Delete(saveFileDialog1.FileName);
+            MessageBox.Show(
+            connection.State.ToString(),
+               "Сохранение невозможно",
+               MessageBoxButtons.OK,
+               MessageBoxIcon.Error);
             File.Copy(connection.DataSource, saveFileDialog1.FileName);
+        }
+
+
+        //справочная информация
+        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+                "\tTransfer of Dang Googs\n\n" +
+                "Автор: Хорольский Андрей Дмитриевич\n" +
+                "e-mail: horolskyandrey@gmail.com\n" +
+                "2022",
+                "О программе",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
         }
 
 
@@ -285,7 +305,7 @@ namespace Transportation_of_dangerous_goods
         private void изменитьДанныеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (chaW) return;
-            new changeElement(this).Show();
+            new changeElement(this, connection).Show();
             chaW = true;
         }
 
@@ -295,7 +315,7 @@ namespace Transportation_of_dangerous_goods
         {
             if (selW < 2)
             {
-                new selectElement(this).Show();
+                new selectElement(this, connection).Show();
                 selW += 1;
             }
         }

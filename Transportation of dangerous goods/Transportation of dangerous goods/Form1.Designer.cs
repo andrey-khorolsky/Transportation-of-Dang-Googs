@@ -141,21 +141,21 @@
             // openFile
             // 
             this.openFile.Name = "openFile";
-            this.openFile.Size = new System.Drawing.Size(133, 22);
+            this.openFile.Size = new System.Drawing.Size(180, 22);
             this.openFile.Text = "Открыть";
             this.openFile.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-            this.saveToolStripMenuItem.Text = "Сохранить";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Text = "Сохранить как";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.closeToolStripMenuItem.Text = "Закрыть";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
@@ -173,28 +173,28 @@
             // администраторToolStripMenuItem
             // 
             this.администраторToolStripMenuItem.Name = "администраторToolStripMenuItem";
-            this.администраторToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.администраторToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.администраторToolStripMenuItem.Text = "Администратор";
             this.администраторToolStripMenuItem.Click += new System.EventHandler(this.администраторToolStripMenuItem_Click);
             // 
             // диспетчерToolStripMenuItem
             // 
             this.диспетчерToolStripMenuItem.Name = "диспетчерToolStripMenuItem";
-            this.диспетчерToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.диспетчерToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.диспетчерToolStripMenuItem.Text = "Диспетчер";
             this.диспетчерToolStripMenuItem.Click += new System.EventHandler(this.диспетчерToolStripMenuItem_Click);
             // 
             // отделКадровToolStripMenuItem
             // 
             this.отделКадровToolStripMenuItem.Name = "отделКадровToolStripMenuItem";
-            this.отделКадровToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.отделКадровToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.отделКадровToolStripMenuItem.Text = "Отдел кадров";
             this.отделКадровToolStripMenuItem.Click += new System.EventHandler(this.отделКадровToolStripMenuItem_Click);
             // 
             // пользовательToolStripMenuItem
             // 
             this.пользовательToolStripMenuItem.Name = "пользовательToolStripMenuItem";
-            this.пользовательToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.пользовательToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.пользовательToolStripMenuItem.Text = "Пользователь";
             this.пользовательToolStripMenuItem.Click += new System.EventHandler(this.пользовательToolStripMenuItem_Click);
             // 
@@ -209,40 +209,39 @@
             this.выборкаИзТаблицToolStripMenuItem.Name = "выборкаИзТаблицToolStripMenuItem";
             this.выборкаИзТаблицToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.выборкаИзТаблицToolStripMenuItem.Text = "Таблицы";
-            this.выборкаИзТаблицToolStripMenuItem.Click += new System.EventHandler(this.выборкаИзТаблицToolStripMenuItem_Click);
             // 
             // добавитьДанныеToolStripMenuItem
             // 
             this.добавитьДанныеToolStripMenuItem.Name = "добавитьДанныеToolStripMenuItem";
-            this.добавитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.добавитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.добавитьДанныеToolStripMenuItem.Text = "Добавить данные";
             this.добавитьДанныеToolStripMenuItem.Click += new System.EventHandler(this.добавитьДанныеToolStripMenuItem_Click);
             // 
             // удалитьДанныеToolStripMenuItem
             // 
             this.удалитьДанныеToolStripMenuItem.Name = "удалитьДанныеToolStripMenuItem";
-            this.удалитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.удалитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.удалитьДанныеToolStripMenuItem.Text = "Удалить данные";
             this.удалитьДанныеToolStripMenuItem.Click += new System.EventHandler(this.удалитьДанныеToolStripMenuItem_Click);
             // 
             // изменитьДанныеToolStripMenuItem
             // 
             this.изменитьДанныеToolStripMenuItem.Name = "изменитьДанныеToolStripMenuItem";
-            this.изменитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.изменитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.изменитьДанныеToolStripMenuItem.Text = "Изменить данные";
             this.изменитьДанныеToolStripMenuItem.Click += new System.EventHandler(this.изменитьДанныеToolStripMenuItem_Click);
             // 
             // выборкаДанныхToolStripMenuItem
             // 
             this.выборкаДанныхToolStripMenuItem.Name = "выборкаДанныхToolStripMenuItem";
-            this.выборкаДанныхToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.выборкаДанныхToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.выборкаДанныхToolStripMenuItem.Text = "Выборка данных";
             this.выборкаДанныхToolStripMenuItem.Click += new System.EventHandler(this.выборкаДанныхToolStripMenuItem_Click);
             // 
             // обновитьДанныеToolStripMenuItem
             // 
             this.обновитьДанныеToolStripMenuItem.Name = "обновитьДанныеToolStripMenuItem";
-            this.обновитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.обновитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.обновитьДанныеToolStripMenuItem.Text = "Обновить данные";
             this.обновитьДанныеToolStripMenuItem.Click += new System.EventHandler(this.обновитьДанныеToolStripMenuItem_Click);
             // 
@@ -266,6 +265,7 @@
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
             this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
+            this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
             // dataGridView1
             // 
@@ -348,7 +348,7 @@
             this.tabControl1.Location = new System.Drawing.Point(618, 465);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(859, 375);
+            this.tabControl1.Size = new System.Drawing.Size(922, 375);
             this.tabControl1.TabIndex = 8;
             // 
             // tabPage1
@@ -357,7 +357,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(851, 347);
+            this.tabPage1.Size = new System.Drawing.Size(914, 347);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -374,7 +374,7 @@
             this.dataGridView4.Location = new System.Drawing.Point(6, 6);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.RowTemplate.Height = 25;
-            this.dataGridView4.Size = new System.Drawing.Size(839, 335);
+            this.dataGridView4.Size = new System.Drawing.Size(902, 335);
             this.dataGridView4.TabIndex = 11;
             // 
             // name_company
@@ -382,7 +382,7 @@
             this.name_company.HeaderText = "Название компании";
             this.name_company.Name = "name_company";
             this.name_company.ReadOnly = true;
-            this.name_company.Width = 170;
+            this.name_company.Width = 200;
             // 
             // region
             // 
@@ -417,7 +417,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(851, 347);
+            this.tabPage2.Size = new System.Drawing.Size(914, 347);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -434,7 +434,7 @@
             this.dataGridView5.Location = new System.Drawing.Point(6, 6);
             this.dataGridView5.Name = "dataGridView5";
             this.dataGridView5.RowTemplate.Height = 25;
-            this.dataGridView5.Size = new System.Drawing.Size(839, 335);
+            this.dataGridView5.Size = new System.Drawing.Size(902, 335);
             this.dataGridView5.TabIndex = 0;
             // 
             // name_tarif
@@ -475,7 +475,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(851, 347);
+            this.tabPage3.Size = new System.Drawing.Size(914, 347);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -489,7 +489,7 @@
             this.dataGridView6.Location = new System.Drawing.Point(6, 6);
             this.dataGridView6.Name = "dataGridView6";
             this.dataGridView6.RowTemplate.Height = 25;
-            this.dataGridView6.Size = new System.Drawing.Size(839, 335);
+            this.dataGridView6.Size = new System.Drawing.Size(902, 335);
             this.dataGridView6.TabIndex = 0;
             // 
             // n_class
@@ -511,7 +511,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 24);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(851, 347);
+            this.tabPage4.Size = new System.Drawing.Size(914, 347);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "tabPage4";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -527,7 +527,7 @@
             this.dataGridView7.Location = new System.Drawing.Point(6, 6);
             this.dataGridView7.Name = "dataGridView7";
             this.dataGridView7.RowTemplate.Height = 25;
-            this.dataGridView7.Size = new System.Drawing.Size(839, 335);
+            this.dataGridView7.Size = new System.Drawing.Size(902, 335);
             this.dataGridView7.TabIndex = 0;
             // 
             // n_crew
@@ -768,11 +768,6 @@
         private DataGridViewTextBoxColumn g_volume;
         private DataGridViewTextBoxColumn g_weight;
         private DataGridViewTextBoxColumn tarif;
-        private DataGridViewTextBoxColumn name_company;
-        private DataGridViewTextBoxColumn region;
-        private DataGridViewTextBoxColumn city;
-        private DataGridViewTextBoxColumn adress;
-        private DataGridViewTextBoxColumn count_of_orders;
         private DataGridViewTextBoxColumn name_tarif;
         private DataGridViewTextBoxColumn class_of_goods;
         private DataGridViewTextBoxColumn lenght;
@@ -799,5 +794,10 @@
         private OpenFileDialog openFileDialog1;
         private SaveFileDialog saveFileDialog1;
         private Label label4;
+        private DataGridViewTextBoxColumn name_company;
+        private DataGridViewTextBoxColumn region;
+        private DataGridViewTextBoxColumn city;
+        private DataGridViewTextBoxColumn adress;
+        private DataGridViewTextBoxColumn count_of_orders;
     }
 }

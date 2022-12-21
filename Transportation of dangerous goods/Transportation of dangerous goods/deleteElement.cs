@@ -19,11 +19,10 @@ namespace Transportation_of_dangerous_goods
         SqliteConnection connection;
         String[] currtab = new string[] { "ID", "От кого", "Кому", "Груз", "Класс груза", "Объем груза", "Вес груза", "Тариф" };
 
-        public deleteElement(Form1 f)
+        public deleteElement(Form1 f, SqliteConnection newCon)
         {
             InitializeComponent();
-            connection = new SqliteConnection("Data Source=../../../Trans_dangerous_goods_DB.db");
-            connection.Open();
+            connection = newCon;
             comboBox1.SelectedIndex = 0;
             f1 = f;
         }
@@ -177,9 +176,9 @@ namespace Transportation_of_dangerous_goods
             }
 
             strForDel += ";";
-            MessageBox.Show(strForDel);
+            //MessageBox.Show(strForDel);
 
-            strForDel += ";";
+            //strForDel += ";";
 
             SqliteCommand comDel = new SqliteCommand("delete from " + table + strForDel, connection);
             SqliteCommand nc = new SqliteCommand("select count(*) from" + table + strForDel, connection);

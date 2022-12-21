@@ -22,11 +22,10 @@ namespace Transportation_of_dangerous_goods
         bool sets = false;
 
 
-        public changeElement(Form1 f)
+        public changeElement(Form1 f, SqliteConnection newCon)
         {
             InitializeComponent();
-            connection = new SqliteConnection("Data Source=../../../Trans_dangerous_goods_DB.db");
-            connection.Open();
+            connection = newCon;
             comboBox1.SelectedIndex = 0;
             f1 = f;
         }
@@ -173,6 +172,16 @@ namespace Transportation_of_dangerous_goods
                     find += makeExpression(0, "max_weight", 3);
 
                     find += makeExpression(1, "name_transport", 4);
+
+                    replaceAt += makeChangesForItem(0, "id", 0);
+
+                    replaceAt += makeChangesForItem(0, "crew", 1);
+
+                    replaceAt += makeChangesForItem(0, "max_volume", 2);
+
+                    replaceAt += makeChangesForItem(1, "max_weight", 3);
+
+                    replaceAt += makeChangesForItem(1, "name_transport", 4);
                     break;
 
                 case 3://company - name, region, city, adress, count_orders
@@ -187,6 +196,16 @@ namespace Transportation_of_dangerous_goods
                     find += makeExpression(1, "adress", 3);
 
                     find += makeExpression(0, "count_orders", 4);
+
+                    replaceAt += makeChangesForItem(1, "name", 0);
+
+                    replaceAt += makeChangesForItem(1, "region", 1);
+
+                    replaceAt += makeChangesForItem(1, "city", 2);
+
+                    replaceAt += makeChangesForItem(1, "adress", 3);
+
+                    replaceAt += makeChangesForItem(0, "count_orders", 4);
                     break;
 
                 case 4://tarif - tarif_name, class_of_goods, len, weight, volume
@@ -201,6 +220,16 @@ namespace Transportation_of_dangerous_goods
                     find += makeExpression(0, "weight", 3);
 
                     find += makeExpression(0, "volume", 4);
+
+                    replaceAt += makeChangesForItem(1, "tarif_name", 0);
+
+                    replaceAt += makeChangesForItem(0, "class_of_goods", 1);
+
+                    replaceAt += makeChangesForItem(0, "len", 2);
+
+                    replaceAt += makeChangesForItem(0, "weight", 3);
+
+                    replaceAt += makeChangesForItem(0, "volume", 4);
                     break;
 
                 case 5://classes_of_goods - class_number, desc
@@ -209,6 +238,10 @@ namespace Transportation_of_dangerous_goods
                     find += makeExpression(0, "class_number", 0);
 
                     find += makeExpression(1, "desc", 1);
+
+                    replaceAt += makeChangesForItem(0, "class_number", 0);
+
+                    replaceAt += makeChangesForItem(1, "desc", 1);
                     break;
 
                 case 6://crew - number_crew, fio_lider, persons, experience
@@ -221,6 +254,14 @@ namespace Transportation_of_dangerous_goods
                     find += makeExpression(0, "persons", 2);
 
                     find += makeExpression(0, "experience", 3);
+
+                    replaceAt += makeChangesForItem(0, "number_crew", 0);
+
+                    replaceAt += makeChangesForItem(1, "fio_lider", 1);
+
+                    replaceAt += makeChangesForItem(0, "persons", 2);
+
+                    replaceAt += makeChangesForItem(0, "experience", 3);
                     break;
             }
 
@@ -244,8 +285,8 @@ namespace Transportation_of_dangerous_goods
             SqliteCommand nc = new SqliteCommand("select count(*) from" + table + find, connection);
 
 
-            try
-            {
+            //try
+            //{
                 string count =  nc.ExecuteScalar().ToString();
                 if (int.Parse(count) == 0)
                 {
@@ -282,17 +323,17 @@ namespace Transportation_of_dangerous_goods
                             MessageBoxOptions.DefaultDesktopOnly);
                 }
 
-            }
-            catch
-            {
-                MessageBox.Show(
-                        "Ошибка при изменении записей",
-                        "Ошибка",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error,
-                        MessageBoxDefaultButton.Button1,
-                        MessageBoxOptions.DefaultDesktopOnly);
-            }
+            //}
+            //catch
+            //{
+            //    MessageBox.Show(
+            //            "Ошибка при изменении записей",
+            //            "Ошибка",
+            //            MessageBoxButtons.OK,
+            //            MessageBoxIcon.Error,
+            //            MessageBoxDefaultButton.Button1,
+            //            MessageBoxOptions.DefaultDesktopOnly);
+            //}
             f1.Focus();
             this.Focus();
         }

@@ -20,11 +20,10 @@ namespace Transportation_of_dangerous_goods
         SqliteConnection connection;
         Form1 f1;
 
-        public selectElement(Form1 f)
+        public selectElement(Form1 f, SqliteConnection newCon)
         {
             InitializeComponent();
-            connection = new SqliteConnection("Data Source=../../../Trans_dangerous_goods_DB.db");
-            connection.Open();
+            connection = newCon;
             comboBox1.SelectedIndex = 0;
             f1 = f;
             currtab = new string[] { "ID", "От кого", "Кому", "Груз", "Класс груза", "Объем груза", "Вес груза", "Тариф" };
