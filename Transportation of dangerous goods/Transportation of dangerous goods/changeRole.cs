@@ -20,7 +20,6 @@ namespace Transportation_of_dangerous_goods
         public changeRole(string str)
         {
             InitializeComponent();
-            //hel = hp;
 
             expectedRole = str;
             switch (expectedRole)

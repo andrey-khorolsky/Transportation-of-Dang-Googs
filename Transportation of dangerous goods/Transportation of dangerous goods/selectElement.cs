@@ -19,6 +19,7 @@ namespace Transportation_of_dangerous_goods
         string expression, table;
         SqliteConnection connection;
         Form1 f1;
+        bool and;
 
         public selectElement(Form1 f, SqliteConnection newCon)
         {
@@ -29,6 +30,8 @@ namespace Transportation_of_dangerous_goods
             currtab = new string[] { "ID", "От кого", "Кому", "Груз", "Класс груза", "Объем груза", "Вес груза", "Тариф" };
         }
 
+
+        //считывание данных динамического размера
         private void changeTable()
         {
             SqliteCommand command;
@@ -74,6 +77,8 @@ namespace Transportation_of_dangerous_goods
             }
         }
 
+
+        //выбор таблицы для добавления
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             Label[] lbl = { label1, label2, label3, label4, label5, label6, label7, label8 };
@@ -118,7 +123,6 @@ namespace Transportation_of_dangerous_goods
                     break;
             }
 
-
             for (int i = 0; i < currtab.Length; i++)
             {
                 lbl[i].Show();
@@ -137,7 +141,8 @@ namespace Transportation_of_dangerous_goods
         }
 
 
-        private string makeExpression(int like, ref bool and, string field, int num)
+        //создание выражения для выборки
+        private string makeExpression(int like, string field, int num)
         {
             CheckBox[] chb = { checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6, checkBox7, checkBox8};
             TextBox[] txb = { textBox1, textBox2, textBox3, textBox4, textBox5, textBox6, textBox7, textBox8 };
@@ -170,128 +175,127 @@ namespace Transportation_of_dangerous_goods
             return res;
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
 
-        }
-
+        //закрытие формы
         private void selectElement_FormClosing(object sender, FormClosingEventArgs e)
         {
             f1.closeSelectWin();
         }
 
+
+        //вывод элементов
         private void button1_Click(object sender, EventArgs e)
         {
             expression = "";
-            bool oneExp = false;
+            and = false;
 
             switch (comboBox1.SelectedIndex)
             {
                 case 0://orders - id, from_company, to_company, googs, g_class, g_volume, g_weight, tarif
                     
                     table = " orders ";
-                    string[] str = { "id", "from_company", "to_company", "goods", "g_class", "g_volume", "g_weight", "tarif" };
 
-                    expression += makeExpression(0, ref oneExp, "id", 0);
+                    expression += makeExpression(0, "id", 0);
                         
-                    expression += makeExpression(1, ref oneExp, "from_company", 1);
+                    expression += makeExpression(1, "from_company", 1);
                     
-                    expression += makeExpression(1, ref oneExp, "to_company", 2);
+                    expression += makeExpression(1, "to_company", 2);
 
-                    expression += makeExpression(1, ref oneExp, "googs", 3);
+                    expression += makeExpression(1, "googs", 3);
 
-                    expression += makeExpression(0, ref oneExp, "g_class", 4);
+                    expression += makeExpression(0, "g_class", 4);
 
-                    expression += makeExpression(0, ref oneExp, "g_volume", 5);
+                    expression += makeExpression(0, "g_volume", 5);
                     
-                    expression += makeExpression(0, ref oneExp, "g_weight", 6);
+                    expression += makeExpression(0, "g_weight", 6);
                     
-                    expression += makeExpression(1, ref oneExp, "tarif", 7);
-
+                    expression += makeExpression(1, "tarif", 7);
                     break;
 
                 case 1://trip - trip_number, id_orders, transport, date_departure, date_arrival
 
                     table = " trip ";
 
-                    expression += makeExpression(0, ref oneExp, "trip_number", 0);
+                    expression += makeExpression(0, "trip_number", 0);
 
-                    expression += makeExpression(0, ref oneExp, "id_orders", 1);
+                    expression += makeExpression(0, "id_orders", 1);
 
-                    expression += makeExpression(0, ref oneExp, "transport", 2);
+                    expression += makeExpression(0, "transport", 2);
 
-                    expression += makeExpression(1, ref oneExp, "date_departure", 3);
+                    expression += makeExpression(1, "date_departure", 3);
 
-                    expression += makeExpression(1, ref oneExp, "date_arrival", 4);
-
+                    expression += makeExpression(1, "date_arrival", 4);
                     break;
 
                 case 2://transport - id, crew, max_volume, max_weight, name_transport
+
                     table = " transport ";
 
+                    expression += makeExpression(0, "id", 0);
 
-                    expression += makeExpression(0, ref oneExp, "id", 0);
+                    expression += makeExpression(0, "crew", 1);
 
-                    expression += makeExpression(0, ref oneExp, "crew", 1);
+                    expression += makeExpression(0, "max_volume", 2);
 
-                    expression += makeExpression(0, ref oneExp, "max_volume", 2);
+                    expression += makeExpression(0, "max_weight", 3);
 
-                    expression += makeExpression(0, ref oneExp, "max_weight", 3);
-
-                    expression += makeExpression(1, ref oneExp, "name_transport", 4);
+                    expression += makeExpression(1, "name_transport", 4);
                     break;
 
                 case 3://company - name, region, city, adress, count_orders
+
                     table = " company ";
 
-                    expression += makeExpression(1, ref oneExp, "name", 0);
+                    expression += makeExpression(1, "name", 0);
 
-                    expression += makeExpression(1, ref oneExp, "region", 1);
+                    expression += makeExpression(1, "region", 1);
 
-                    expression += makeExpression(1, ref oneExp, "city", 2);
+                    expression += makeExpression(1, "city", 2);
 
-                    expression += makeExpression(1, ref oneExp, "adress", 3);
+                    expression += makeExpression(1, "adress", 3);
 
-                    expression += makeExpression(0, ref oneExp, "count_orders", 4);
+                    expression += makeExpression(0, "count_orders", 4);
                     break;
 
                 case 4://tarif - tarif_name, class_of_goods, len, weight, volume
+
                     table = " tarif ";
 
-                    expression += makeExpression(1, ref oneExp, "tarif_name", 0);
+                    expression += makeExpression(1, "tarif_name", 0);
 
-                    expression += makeExpression(0, ref oneExp, "class_of_goods", 1);
+                    expression += makeExpression(0, "class_of_goods", 1);
 
-                    expression += makeExpression(0, ref oneExp, "len", 2);
+                    expression += makeExpression(0, "len", 2);
 
-                    expression += makeExpression(0, ref oneExp, "weight", 3);
+                    expression += makeExpression(0, "weight", 3);
 
-                    expression += makeExpression(0, ref oneExp, "volume", 4);
+                    expression += makeExpression(0, "volume", 4);
                     break;
 
                 case 5://classes_of_goods - class_number, desc
+
                     table = " classes_of_goods ";
 
-                    expression += makeExpression(0, ref oneExp, "class_number", 0);
+                    expression += makeExpression(0, "class_number", 0);
 
-                    expression += makeExpression(1, ref oneExp, "desc", 1);
+                    expression += makeExpression(1, "desc", 1);
                     break;
 
                 case 6://crew - number_crew, fio_lider, persons, experience
+
                     table = " crew ";
 
-                    expression += makeExpression(0, ref oneExp, "number_crew", 0);
+                    expression += makeExpression(0, "number_crew", 0);
 
-                    expression += makeExpression(1, ref oneExp, "fio_lider", 1);
+                    expression += makeExpression(1, "fio_lider", 1);
 
-                    expression += makeExpression(0, ref oneExp, "persons", 2);
+                    expression += makeExpression(0, "persons", 2);
 
-                    expression += makeExpression(0, ref oneExp, "experience", 3);
+                    expression += makeExpression(0, "experience", 3);
                     break;
             }
 
             expression += ";";
-            MessageBox.Show(expression);
             changeTable();
             f1.updTables();
         }

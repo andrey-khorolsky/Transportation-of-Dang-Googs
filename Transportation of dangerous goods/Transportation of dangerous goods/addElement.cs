@@ -92,17 +92,8 @@ namespace Transportation_of_dangerous_goods
                     "Ошибка",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error,
-                    MessageBoxDefaultButton.Button1,
-                    MessageBoxOptions.DefaultDesktopOnly);
+                    MessageBoxDefaultButton.Button1);
             }
-        }
-
-
-        //закрытие формы
-        private void button2_Click(object sender, EventArgs e)
-        {
-            f1.setAddFalse();
-            Close();
         }
 
 

@@ -266,23 +266,18 @@ namespace Transportation_of_dangerous_goods
         //сохранение файла
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //if (connection.State.ToString().Equals("open"))
-            //{
-            //    MessageBox.Show(
-            //    "Нельзя сохранить данные, так как отсутствует подключение",
-            //    "Сохранение невозможно",
-            //    MessageBoxButtons.OK,
-            //    MessageBoxIcon.Error);
-            //    return;
-            //}
-                if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
+            if (!connection.State.ToString().Equals("Open"))
+            {
+                MessageBox.Show(
+                "Нельзя сохранить данные, так как отсутствует подключение",
+                "Сохранение невозможно",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                return;
+            }
+            if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
                 return;
             File.Delete(saveFileDialog1.FileName);
-            MessageBox.Show(
-            connection.State.ToString(),
-               "Сохранение невозможно",
-               MessageBoxButtons.OK,
-               MessageBoxIcon.Error);
             File.Copy(connection.DataSource, saveFileDialog1.FileName);
         }
 
@@ -291,7 +286,7 @@ namespace Transportation_of_dangerous_goods
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show(
-                "\tTransfer of Dang Googs\n\n" +
+                "\tTransfer of Dang Googs (v1.1)\n\n" +
                 "Автор: Хорольский Андрей Дмитриевич\n" +
                 "e-mail: horolskyandrey@gmail.com\n" +
                 "2022",

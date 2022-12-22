@@ -152,56 +152,56 @@
             // 
             this.textBox8.Location = new System.Drawing.Point(201, 444);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 23);
+            this.textBox8.Size = new System.Drawing.Size(121, 23);
             this.textBox8.TabIndex = 34;
             // 
             // textBox7
             // 
             this.textBox7.Location = new System.Drawing.Point(201, 381);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 23);
+            this.textBox7.Size = new System.Drawing.Size(121, 23);
             this.textBox7.TabIndex = 33;
             // 
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(201, 318);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 23);
+            this.textBox6.Size = new System.Drawing.Size(121, 23);
             this.textBox6.TabIndex = 32;
             // 
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(201, 255);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 23);
+            this.textBox5.Size = new System.Drawing.Size(121, 23);
             this.textBox5.TabIndex = 31;
             // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(201, 192);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 23);
+            this.textBox4.Size = new System.Drawing.Size(121, 23);
             this.textBox4.TabIndex = 30;
             // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(201, 129);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 23);
+            this.textBox3.Size = new System.Drawing.Size(121, 23);
             this.textBox3.TabIndex = 29;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(201, 66);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 23);
+            this.textBox2.Size = new System.Drawing.Size(121, 23);
             this.textBox2.TabIndex = 28;
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(201, 3);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 23);
+            this.textBox1.Size = new System.Drawing.Size(121, 23);
             this.textBox1.TabIndex = 27;
             // 
             // label9
@@ -280,56 +280,56 @@
             // 
             this.textBox9.Location = new System.Drawing.Point(356, 3);
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 23);
+            this.textBox9.Size = new System.Drawing.Size(115, 23);
             this.textBox9.TabIndex = 50;
             // 
             // textBox10
             // 
             this.textBox10.Location = new System.Drawing.Point(356, 66);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 23);
+            this.textBox10.Size = new System.Drawing.Size(115, 23);
             this.textBox10.TabIndex = 49;
             // 
             // textBox11
             // 
             this.textBox11.Location = new System.Drawing.Point(356, 129);
             this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(100, 23);
+            this.textBox11.Size = new System.Drawing.Size(115, 23);
             this.textBox11.TabIndex = 48;
             // 
             // textBox12
             // 
             this.textBox12.Location = new System.Drawing.Point(356, 192);
             this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(100, 23);
+            this.textBox12.Size = new System.Drawing.Size(115, 23);
             this.textBox12.TabIndex = 47;
             // 
             // textBox13
             // 
             this.textBox13.Location = new System.Drawing.Point(356, 255);
             this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(100, 23);
+            this.textBox13.Size = new System.Drawing.Size(115, 23);
             this.textBox13.TabIndex = 46;
             // 
             // textBox14
             // 
             this.textBox14.Location = new System.Drawing.Point(356, 318);
             this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(100, 23);
+            this.textBox14.Size = new System.Drawing.Size(115, 23);
             this.textBox14.TabIndex = 45;
             // 
             // textBox15
             // 
             this.textBox15.Location = new System.Drawing.Point(356, 381);
             this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(100, 23);
+            this.textBox15.Size = new System.Drawing.Size(115, 23);
             this.textBox15.TabIndex = 44;
             // 
             // textBox16
             // 
             this.textBox16.Location = new System.Drawing.Point(356, 444);
             this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(100, 23);
+            this.textBox16.Size = new System.Drawing.Size(115, 23);
             this.textBox16.TabIndex = 43;
             // 
             // comboBox1
@@ -343,7 +343,7 @@
             "Тариф",
             "Классы опасных грузов",
             "Экипаж"});
-            this.comboBox1.Location = new System.Drawing.Point(187, 28);
+            this.comboBox1.Location = new System.Drawing.Point(142, 25);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 23);
             this.comboBox1.TabIndex = 59;
@@ -439,7 +439,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(345, 23);
+            this.button1.Location = new System.Drawing.Point(310, 20);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(83, 30);
             this.button1.TabIndex = 68;
@@ -495,7 +495,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.textBox4, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.textBox3, 2, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(42, 70);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 67);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 8;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
@@ -512,9 +512,10 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(125, 31);
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label17.Location = new System.Drawing.Point(80, 28);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(56, 15);
+            this.label17.Size = new System.Drawing.Size(61, 17);
             this.label17.TabIndex = 70;
             this.label17.Text = "Таблица:";
             // 
@@ -522,7 +523,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(565, 620);
+            this.ClientSize = new System.Drawing.Size(509, 591);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.button1);

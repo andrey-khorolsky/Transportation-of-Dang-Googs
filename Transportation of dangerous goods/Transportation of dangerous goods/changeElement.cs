@@ -90,7 +90,6 @@ namespace Transportation_of_dangerous_goods
             string replaceAt = "set ";
             string table = "";
 
-            find = "";
             sets = false;
             and = false;
 
@@ -101,35 +100,21 @@ namespace Transportation_of_dangerous_goods
                     table = " orders ";
 
                     find += makeExpression(0, "id", 0);
-
                     find += makeExpression(1, "from_company", 1);
-
                     find += makeExpression(1, "to_company", 2);
-
                     find += makeExpression(1, "googs", 3);
-
                     find += makeExpression(0, "g_class", 4);
-
                     find += makeExpression(0, "g_volume", 5);
-
                     find += makeExpression(0, "g_weight", 6);
-
                     find += makeExpression(1, "tarif", 7);
 
                     replaceAt += makeChangesForItem(0, "id", 0);
-
                     replaceAt += makeChangesForItem(1, "from_company", 1);
-
                     replaceAt += makeChangesForItem(1, "to_company", 2);
-
                     replaceAt += makeChangesForItem(1, "googs", 3);
-
                     replaceAt += makeChangesForItem(0, "g_class", 4);
-
                     replaceAt += makeChangesForItem(0, "g_volume", 5);
-
                     replaceAt += makeChangesForItem(0, "g_weight", 6);
-
                     replaceAt += makeChangesForItem(1, "tarif", 7);
                     break;
 
@@ -156,12 +141,11 @@ namespace Transportation_of_dangerous_goods
                     replaceAt += makeChangesForItem(1, "date_departure", 3);
 
                     replaceAt += makeChangesForItem(1, "date_arrival", 4);
-
                     break;
 
                 case 2://transport - id, crew, max_volume, max_weight, name_transport
-                    table = " transport ";
 
+                    table = " transport ";
 
                     find += makeExpression(0, "id", 0);
 
@@ -185,6 +169,7 @@ namespace Transportation_of_dangerous_goods
                     break;
 
                 case 3://company - name, region, city, adress, count_orders
+
                     table = " company ";
 
                     find += makeExpression(1, "name", 0);
@@ -209,6 +194,7 @@ namespace Transportation_of_dangerous_goods
                     break;
 
                 case 4://tarif - tarif_name, class_of_goods, len, weight, volume
+
                     table = " tarif ";
 
                     find += makeExpression(1, "tarif_name", 0);
@@ -233,6 +219,7 @@ namespace Transportation_of_dangerous_goods
                     break;
 
                 case 5://classes_of_goods - class_number, desc
+
                     table = " classes_of_goods ";
 
                     find += makeExpression(0, "class_number", 0);
@@ -245,6 +232,7 @@ namespace Transportation_of_dangerous_goods
                     break;
 
                 case 6://crew - number_crew, fio_lider, persons, experience
+
                     table = " crew ";
 
                     find += makeExpression(0, "number_crew", 0);
@@ -267,8 +255,6 @@ namespace Transportation_of_dangerous_goods
 
 
             find += ";";
-            MessageBox.Show(find);
-            MessageBox.Show(replaceAt);
             if (replaceAt.Equals("set ") || find.Equals(""))
             {
                 MessageBox.Show(
@@ -276,8 +262,7 @@ namespace Transportation_of_dangerous_goods
                         "Изменение",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error,
-                        MessageBoxDefaultButton.Button1,
-                        MessageBoxOptions.DefaultDesktopOnly);
+                        MessageBoxDefaultButton.Button1);
                 return;
             }
 
@@ -285,20 +270,17 @@ namespace Transportation_of_dangerous_goods
             SqliteCommand nc = new SqliteCommand("select count(*) from" + table + find, connection);
 
 
-            //try
-            //{
+            try
+            {
                 string count =  nc.ExecuteScalar().ToString();
                 if (int.Parse(count) == 0)
                 {
                     MessageBox.Show(
-                            "Записи не найдены" + count,
+                            "Записи не найдены",
                             "Изменение",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information,
-                            MessageBoxDefaultButton.Button1,
-                            MessageBoxOptions.DefaultDesktopOnly);
-                    f1.Focus();
-                    this.Focus();
+                            MessageBoxDefaultButton.Button1);
                     return;
                 }
 
@@ -307,8 +289,7 @@ namespace Transportation_of_dangerous_goods
                        "Изменение",
                        MessageBoxButtons.YesNo,
                        MessageBoxIcon.Question,
-                       MessageBoxDefaultButton.Button1,
-                       MessageBoxOptions.DefaultDesktopOnly);
+                       MessageBoxDefaultButton.Button1);
 
                 if (result == DialogResult.Yes)
                 {
@@ -319,23 +300,19 @@ namespace Transportation_of_dangerous_goods
                             "Изменение",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information,
-                            MessageBoxDefaultButton.Button1,
-                            MessageBoxOptions.DefaultDesktopOnly);
+                            MessageBoxDefaultButton.Button1);
                 }
 
-            //}
-            //catch
-            //{
-            //    MessageBox.Show(
-            //            "Ошибка при изменении записей",
-            //            "Ошибка",
-            //            MessageBoxButtons.OK,
-            //            MessageBoxIcon.Error,
-            //            MessageBoxDefaultButton.Button1,
-            //            MessageBoxOptions.DefaultDesktopOnly);
-            //}
-            f1.Focus();
-            this.Focus();
+            }
+            catch
+            {
+                MessageBox.Show(
+                        "Ошибка при изменении записей",
+                        "Ошибка",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error,
+                        MessageBoxDefaultButton.Button1);
+            }
         }
 
 
@@ -403,6 +380,7 @@ namespace Transportation_of_dangerous_goods
             }
         }
 
+        //закрытие формы
         private void changeElement_FormClosed(object sender, FormClosedEventArgs e)
         {
             f1.updTables();
