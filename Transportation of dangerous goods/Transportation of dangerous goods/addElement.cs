@@ -14,18 +14,23 @@ namespace Transportation_of_dangerous_goods
     public partial class addElement : Form
     {
 
+        //переменные
         Form1 f1;
         SqliteConnection connection;
         int nTable = 0;
         string[] currtab = new string[] { "ID", "От кого", "Кому", "Груз", "Класс груза", "Объем груза", "Вес груза", "Тариф" };
+        string role ="";
 
 
-    public addElement(Form1 f, SqliteConnection newCon)
+        //конструктор
+    public addElement(Form1 f, SqliteConnection newCon, string rol)
         {
             InitializeComponent();
             connection = newCon;
             f1 = f;
             comboBox1.SelectedIndex = 0;
+            role = rol;
+            comboBox1_SelectedIndexChanged(this, EventArgs.Empty);
         }
 
 
@@ -110,39 +115,52 @@ namespace Transportation_of_dangerous_goods
                 txb[i].Clear();
             }
 
+            button1.Enabled = true;
+
             switch (comboBox1.SelectedIndex)
             {
                 case 0://orders
+                    if (role.Equals("hr")) button1.Enabled = false;
                     currtab = new string[] { "ID", "От кого", "Кому", "Груз", "Класс груза", "Объем груза", "Вес груза", "Тариф" };
                     nTable = 0;
                     break;
 
                 case 1://trip
+                    if (role.Equals("hr")) button1.Enabled = false;
                     currtab = new string[] { "Номер рейса", "ID заказа", "Транспорт", "Дата отправления", "Дата прибытия" };
                     nTable = 1;
                     break;
                 
                 case 2://transport
+                    if (role.Equals("hr")) button1.Enabled = false;
+                    if (role.Equals("dispatcher")) button1.Enabled = false;
                     currtab = new string[] { "ID транспорта", "Экипаж", "Мкасимальный объем", "Максимальный вес", "Наименование" };
                     nTable = 2;
                     break;
 
                 case 3://company
+                    if (role.Equals("hr")) button1.Enabled = false;
+                    if (role.Equals("dispatcher")) button1.Enabled = false;
                     currtab = new string[] { "Название", "Регион", "Город", "Адрес", "Количество заказов" };
                     nTable = 3;
                     break;
 
                 case 4://tarif
+                    if (role.Equals("hr")) button1.Enabled = false;
+                    if (role.Equals("dispatcher")) button1.Enabled = false;
                     currtab = new string[] { "Название", "Классы грузов", "Цена за км", "Цена за м3", "Цена за тонну" };
                     nTable = 4;
                     break;
 
                 case 5://classes_of_goods
+                    if (role.Equals("hr")) button1.Enabled = false;
+                    if (role.Equals("dispatcher")) button1.Enabled = false;
                     currtab = new string[] { "Номер класса", "Пояснение" };
                     nTable = 5;
                     break;
 
                 case 6://crew
+                    if (role.Equals("dispatcher")) button1.Enabled = false;
                     currtab = new string[] { "Номер экипажа", "ФИО главного", "Размер экипажа", "Опыт" };
                     nTable = 6;
                     break;
@@ -159,6 +177,8 @@ namespace Transportation_of_dangerous_goods
             }
         }
 
+
+        //закрытие формы
         private void addElement_FormClosed(object sender, FormClosedEventArgs e)
         {
             f1.setAddFalse();

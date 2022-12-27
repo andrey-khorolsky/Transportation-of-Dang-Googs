@@ -15,22 +15,28 @@ namespace Transportation_of_dangerous_goods
     public partial class changeElement : Form
     {
 
+        //переменные
         Form1 f1;
         SqliteConnection connection;
-        String[] currtab = new string[] { "ID", "От кого", "Кому", "Груз", "Класс груза", "Объем груза", "Вес груза", "Тариф" };
+        string[] currtab = new string[] { "ID", "От кого", "Кому", "Груз", "Класс груза", "Объем груза", "Вес груза", "Тариф" };
         bool and = false;
         bool sets = false;
+        string role = "";
 
 
-        public changeElement(Form1 f, SqliteConnection newCon)
+        //конструктор
+        public changeElement(Form1 f, SqliteConnection newCon, string rol)
         {
             InitializeComponent();
             connection = newCon;
             comboBox1.SelectedIndex = 0;
+            role = rol;
             f1 = f;
+            comboBox1_SelectedIndexChanged(this, EventArgs.Empty);
         }
 
 
+        //создание выражения для выборки
         private string makeExpression(int like, string field, int num)
         {
             CheckBox[] chb = { checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6, checkBox7, checkBox8 };
@@ -64,6 +70,8 @@ namespace Transportation_of_dangerous_goods
             return res;
         }
 
+
+        //создание выражения для изменения (на него заменяется)
         private string makeChangesForItem(int like, string field, int newText)
         {
             TextBox[] txb = { textBox9, textBox10, textBox11, textBox12, textBox13, textBox14, textBox15, textBox16 };
@@ -254,6 +262,7 @@ namespace Transportation_of_dangerous_goods
             }
 
 
+            //если выражение составлено не корректно
             find += ";";
             if (replaceAt.Equals("set ") || find.Equals(""))
             {
@@ -270,6 +279,7 @@ namespace Transportation_of_dangerous_goods
             SqliteCommand nc = new SqliteCommand("select count(*) from" + table + find, connection);
 
 
+            //попытка изменения данных
             try
             {
                 string count =  nc.ExecuteScalar().ToString();
@@ -335,33 +345,45 @@ namespace Transportation_of_dangerous_goods
                 txb[i].Clear();
             }
 
+            button1.Enabled = true;
             switch (comboBox1.SelectedIndex)
             {
                 case 0://orders
+                    if (role.Equals("hr")) button1.Enabled = false;
                     currtab = new string[] { "ID", "От кого", "Кому", "Груз", "Класс груза", "Объем груза", "Вес груза", "Тариф" };
                     break;
 
                 case 1://trip
+                    if (role.Equals("hr")) button1.Enabled = false;
                     currtab = new string[] { "Номер рейса", "ID заказа", "Транспорт", "Дата отправления", "Дата прибытия" };
                     break;
 
                 case 2://transport
+                    if (role.Equals("hr")) button1.Enabled = false;
+                    if (role.Equals("dispatcher")) button1.Enabled = false;
                     currtab = new string[] { "ID транспорта", "Экипаж", "Мкасимальный объем", "Максимальный вес", "Наименование" };
                     break;
 
                 case 3://company
+                    if (role.Equals("hr")) button1.Enabled = false;
+                    if (role.Equals("dispatcher")) button1.Enabled = false;
                     currtab = new string[] { "Название", "Регион", "Город", "Адрес", "Количество заказов" };
                     break;
 
                 case 4://tarif
+                    if (role.Equals("hr")) button1.Enabled = false;
+                    if (role.Equals("dispatcher")) button1.Enabled = false;
                     currtab = new string[] { "Название", "Классы грузов", "Цена за км", "Цена за м3", "Цена за тонну" };
                     break;
 
                 case 5://classes_of_goods
+                    if (role.Equals("hr")) button1.Enabled = false;
+                    if (role.Equals("dispatcher")) button1.Enabled = false;
                     currtab = new string[] { "Номер класса", "Пояснение" };
                     break;
 
                 case 6://crew
+                    if (role.Equals("dispatcher")) button1.Enabled = false;
                     currtab = new string[] { "Номер экипажа", "ФИО главного", "Размер экипажа", "Опыт" };
                     break;
             }

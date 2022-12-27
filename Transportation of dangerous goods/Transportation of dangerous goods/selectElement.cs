@@ -15,12 +15,14 @@ namespace Transportation_of_dangerous_goods
     public partial class selectElement : Form
     {
 
+        //переменные
         string[] currtab;
         string expression, table;
         SqliteConnection connection;
         Form1 f1;
         bool and;
 
+        //конструктор
         public selectElement(Form1 f, SqliteConnection newCon)
         {
             InitializeComponent();
@@ -186,9 +188,11 @@ namespace Transportation_of_dangerous_goods
         //вывод элементов
         private void button1_Click(object sender, EventArgs e)
         {
+            //обнуление выражения
             expression = "";
             and = false;
 
+            //создание выражения
             switch (comboBox1.SelectedIndex)
             {
                 case 0://orders - id, from_company, to_company, googs, g_class, g_volume, g_weight, tarif
@@ -295,6 +299,7 @@ namespace Transportation_of_dangerous_goods
                     break;
             }
 
+            //вывод результата
             expression += ";";
             changeTable();
             f1.updTables();

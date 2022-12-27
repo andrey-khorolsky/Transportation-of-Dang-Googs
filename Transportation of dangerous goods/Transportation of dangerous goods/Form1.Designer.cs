@@ -141,21 +141,21 @@
             // openFile
             // 
             this.openFile.Name = "openFile";
-            this.openFile.Size = new System.Drawing.Size(180, 22);
+            this.openFile.Size = new System.Drawing.Size(154, 22);
             this.openFile.Text = "Открыть";
             this.openFile.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.saveToolStripMenuItem.Text = "Сохранить как";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.closeToolStripMenuItem.Text = "Закрыть";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
@@ -173,28 +173,28 @@
             // администраторToolStripMenuItem
             // 
             this.администраторToolStripMenuItem.Name = "администраторToolStripMenuItem";
-            this.администраторToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.администраторToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.администраторToolStripMenuItem.Text = "Администратор";
             this.администраторToolStripMenuItem.Click += new System.EventHandler(this.администраторToolStripMenuItem_Click);
             // 
             // диспетчерToolStripMenuItem
             // 
             this.диспетчерToolStripMenuItem.Name = "диспетчерToolStripMenuItem";
-            this.диспетчерToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.диспетчерToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.диспетчерToolStripMenuItem.Text = "Диспетчер";
             this.диспетчерToolStripMenuItem.Click += new System.EventHandler(this.диспетчерToolStripMenuItem_Click);
             // 
             // отделКадровToolStripMenuItem
             // 
             this.отделКадровToolStripMenuItem.Name = "отделКадровToolStripMenuItem";
-            this.отделКадровToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.отделКадровToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.отделКадровToolStripMenuItem.Text = "Отдел кадров";
             this.отделКадровToolStripMenuItem.Click += new System.EventHandler(this.отделКадровToolStripMenuItem_Click);
             // 
             // пользовательToolStripMenuItem
             // 
             this.пользовательToolStripMenuItem.Name = "пользовательToolStripMenuItem";
-            this.пользовательToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.пользовательToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.пользовательToolStripMenuItem.Text = "Пользователь";
             this.пользовательToolStripMenuItem.Click += new System.EventHandler(this.пользовательToolStripMenuItem_Click);
             // 
@@ -213,35 +213,35 @@
             // добавитьДанныеToolStripMenuItem
             // 
             this.добавитьДанныеToolStripMenuItem.Name = "добавитьДанныеToolStripMenuItem";
-            this.добавитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.добавитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.добавитьДанныеToolStripMenuItem.Text = "Добавить данные";
             this.добавитьДанныеToolStripMenuItem.Click += new System.EventHandler(this.добавитьДанныеToolStripMenuItem_Click);
             // 
             // удалитьДанныеToolStripMenuItem
             // 
             this.удалитьДанныеToolStripMenuItem.Name = "удалитьДанныеToolStripMenuItem";
-            this.удалитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.удалитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.удалитьДанныеToolStripMenuItem.Text = "Удалить данные";
             this.удалитьДанныеToolStripMenuItem.Click += new System.EventHandler(this.удалитьДанныеToolStripMenuItem_Click);
             // 
             // изменитьДанныеToolStripMenuItem
             // 
             this.изменитьДанныеToolStripMenuItem.Name = "изменитьДанныеToolStripMenuItem";
-            this.изменитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.изменитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.изменитьДанныеToolStripMenuItem.Text = "Изменить данные";
             this.изменитьДанныеToolStripMenuItem.Click += new System.EventHandler(this.изменитьДанныеToolStripMenuItem_Click);
             // 
             // выборкаДанныхToolStripMenuItem
             // 
             this.выборкаДанныхToolStripMenuItem.Name = "выборкаДанныхToolStripMenuItem";
-            this.выборкаДанныхToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.выборкаДанныхToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.выборкаДанныхToolStripMenuItem.Text = "Выборка данных";
             this.выборкаДанныхToolStripMenuItem.Click += new System.EventHandler(this.выборкаДанныхToolStripMenuItem_Click);
             // 
             // обновитьДанныеToolStripMenuItem
             // 
             this.обновитьДанныеToolStripMenuItem.Name = "обновитьДанныеToolStripMenuItem";
-            this.обновитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.обновитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.обновитьДанныеToolStripMenuItem.Text = "Обновить данные";
             this.обновитьДанныеToolStripMenuItem.Click += new System.EventHandler(this.обновитьДанныеToolStripMenuItem_Click);
             // 

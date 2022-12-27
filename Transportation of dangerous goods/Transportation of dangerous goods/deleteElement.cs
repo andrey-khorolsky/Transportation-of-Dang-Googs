@@ -15,19 +15,27 @@ namespace Transportation_of_dangerous_goods
     public partial class deleteElement : Form
     {
 
+        //переменные
         Form1 f1;
         SqliteConnection connection;
-        String[] currtab = new string[] { "ID", "От кого", "Кому", "Груз", "Класс груза", "Объем груза", "Вес груза", "Тариф" };
+        string[] currtab = new string[] { "ID", "От кого", "Кому", "Груз", "Класс груза", "Объем груза", "Вес груза", "Тариф" };
+        string role ="";
         bool and;
 
-        public deleteElement(Form1 f, SqliteConnection newCon)
+
+        //конструктор
+        public deleteElement(Form1 f, SqliteConnection newCon, string rol)
         {
             InitializeComponent();
             connection = newCon;
             comboBox1.SelectedIndex = 0;
             f1 = f;
+            role = rol;
+            comboBox1_SelectedIndexChanged(this, EventArgs.Empty);
         }
 
+
+        //создание выражения
         private string makeExpression(int like, string field, int num)
         {
             CheckBox[] chb = { checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6, checkBox7, checkBox8 };
@@ -179,9 +187,11 @@ namespace Transportation_of_dangerous_goods
 
             strForDel += ";";
 
+            //команды для удаления и поиска числа удаляемых записей
             SqliteCommand comDel = new SqliteCommand("delete from " + table + strForDel, connection);
             SqliteCommand nc = new SqliteCommand("select count(*) from" + table + strForDel, connection);
 
+            //попытка удаления
             try
             {
                 DialogResult result = MessageBox.Show(
@@ -231,33 +241,46 @@ namespace Transportation_of_dangerous_goods
                 txb[i].Clear();
             }
 
+            button1.Enabled = true;
+
             switch (comboBox1.SelectedIndex)
             {
                 case 0://orders
+                    if (role.Equals("hr")) button1.Enabled = false;
                     currtab = new string[] { "ID", "От кого", "Кому", "Груз", "Класс груза", "Объем груза", "Вес груза", "Тариф" };
                     break;
 
                 case 1://trip
+                    if (role.Equals("hr")) button1.Enabled = false;
                     currtab = new string[] { "Номер рейса", "ID заказа", "Транспорт", "Дата отправления", "Дата прибытия" };
                     break;
 
                 case 2://transport
+                    if (role.Equals("hr")) button1.Enabled = false;
+                    if (role.Equals("dispatcher")) button1.Enabled = false;
                     currtab = new string[] { "ID транспорта", "Экипаж", "Мкасимальный объем", "Максимальный вес", "Наименование" };
                     break;
 
                 case 3://company
+                    if (role.Equals("hr")) button1.Enabled = false;
+                    if (role.Equals("dispatcher")) button1.Enabled = false;
                     currtab = new string[] { "Название", "Регион", "Город", "Адрес", "Количество заказов" };
                     break;
 
                 case 4://tarif
+                    if (role.Equals("hr")) button1.Enabled = false;
+                    if (role.Equals("dispatcher")) button1.Enabled = false;
                     currtab = new string[] { "Название", "Классы грузов", "Цена за км", "Цена за м3", "Цена за тонну" };
                     break;
 
                 case 5://classes_of_goods
+                    if (role.Equals("hr")) button1.Enabled = false;
+                    if (role.Equals("dispatcher")) button1.Enabled = false;
                     currtab = new string[] { "Номер класса", "Пояснение" };
                     break;
 
                 case 6://crew
+                    if (role.Equals("dispatcher")) button1.Enabled = false;
                     currtab = new string[] { "Номер экипажа", "ФИО главного", "Размер экипажа", "Опыт" };
                     break;
             }

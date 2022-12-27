@@ -3,6 +3,7 @@ using System.IO;
 using System.Reflection.PortableExecutable;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
 namespace Transportation_of_dangerous_goods
 {
@@ -15,7 +16,7 @@ namespace Transportation_of_dangerous_goods
             chaW = false;
         int selW = 0;
         SqliteConnection connection;
-        protected static string role = "admin";
+        public string role = "user";
 
         public void setAddFalse()
         {
@@ -114,6 +115,7 @@ namespace Transportation_of_dangerous_goods
         public Form1()
         {
             InitializeComponent();
+            role = "admin";
             tabPage1.Text = "Компании";
             tabPage2.Text = "Тарифы";
             tabPage3.Text = "Клсааы опасных грузов";
@@ -173,7 +175,7 @@ namespace Transportation_of_dangerous_goods
                     MessageBoxIcon.Error);
                 return;
             }
-            new addElement(this, connection).Show();
+            new addElement(this, connection, role).Show();
             addW = true;
         }
 
@@ -182,7 +184,6 @@ namespace Transportation_of_dangerous_goods
         private void обновитьДанныеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (connection == null) return;
-
             updTables();
         }
 
@@ -201,7 +202,7 @@ namespace Transportation_of_dangerous_goods
                     MessageBoxIcon.Error);
                 return;
             }
-            new deleteElement(this, connection).Show();
+            new deleteElement(this, connection, role).Show();
             delW = true;
         }
 
@@ -266,6 +267,9 @@ namespace Transportation_of_dangerous_goods
         //сохранение файла
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            if (role.Equals("user")) return;
+
             if (!connection.State.ToString().Equals("Open"))
             {
                 MessageBox.Show(
@@ -286,7 +290,7 @@ namespace Transportation_of_dangerous_goods
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show(
-                "\tTransfer of Dang Googs (v1.1)\n\n" +
+                "Transfer of Dang Googs (v1.11)\n\n" +
                 "Автор: Хорольский Андрей Дмитриевич\n" +
                 "e-mail: horolskyandrey@gmail.com\n" +
                 "2022",
@@ -300,7 +304,17 @@ namespace Transportation_of_dangerous_goods
         private void изменитьДанныеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (chaW) return;
-            new changeElement(this, connection).Show();
+
+            if (role == "user")
+            {
+                MessageBox.Show(
+                    "У Вас недостаточно полномочий для этого действия",
+                    "Невозможно выполнить действие",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return ;
+            }
+            new changeElement(this, connection, role).Show();
             chaW = true;
         }
 
